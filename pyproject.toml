@@ -1,0 +1,18 @@
+[project]
+name = "log-scale-chronology"
+version = "0.1.0"
+description = "Default template for PDM package"
+authors = [
+    {name = "AcipenserSturio", email = "AcipenserSturio@users.noreply.github.com"},
+]
+dependencies = []
+requires-python = "==3.11.*"
+readme = "README.md"
+license = {text = "GPL-3.0"}
+
+
+[tool.pdm]
+distribution = false
+
+[tool.pdm.scripts]
+build = "python -m log-scale-chronology"
