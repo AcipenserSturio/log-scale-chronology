@@ -44,6 +44,7 @@
 "35 mya" = "India begins to collide with Asia"
 "25 mya" = "Apes diverge from the Old World monkeys"
 "18 mya" = "Great apes diverge from gibbons"
+"16 mya" = "Iceland forms" # actually 18-16
 "14 mya" = "Hominins diverge from orangutans (Pongo)"
 "7 mya" = "Hominini diverge from gorillas (Gorilla)"
 "5 mya" = "Humans diverge from chimpanzees (Pan)" # actually 3-5
@@ -53,6 +54,7 @@
 "2.12 mya" = "Out of Africa I - human presence in China"
 "1.8 mya" = "Oldest known human skeletal remains outside of Africa (Homo erectus)"
 "1 mya" = "Homo antecessor, last common ancestor of modern humans and Neanderthals" # 1.2 - 0.8 mya
+"0.7 mya" = "Last reversal of the Earth's magnetic field"
 "430 kya" = "Earliest Neanderthals (rough date)"
 "300 kya" = "Levallois technique of knapping used by Neanderthals in Europe"
 "285 kya" = "Earliest Denisovans"
