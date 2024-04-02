@@ -86,6 +86,8 @@ child = "Paleozoic"
 color = "#99C08D"
 child = "Cambrian"
 
+
+
 [period.Cambrian]
 color = "#7FA056"
 child = "Terreneuvian"
@@ -145,3 +147,598 @@ start = "494 mya"
 [age."Stage 10"]
 color = "#E6F5C9"
 start = "489.5 mya"
+
+
+
+[period.Ordovician]
+color = "#009270"
+child = "Lower Ordovician"
+
+[epoch."Lower Ordovician"]
+color = "#1A9D6F"
+child = "Tremadocian"
+
+[age.Tremadocian]
+color = "#33A97E"
+start = "485.4 mya"
+
+[age.Floian]
+color = "#41B087"
+start = "477.7 mya"
+
+[epoch."Middle Ordovician"]
+color = "#4DB47E"
+child = "Dapingian"
+
+[age.Dapingian]
+color = "#66C092"
+start = "470.0 mya"
+
+[age.Darriwilian]
+color = "#74C69C"
+start = "467.3 mya"
+
+[epoch."Upper Ordovician"]
+color = "#7FCA93"
+child = "Sandbian"
+
+[age.Sandbian]
+color = "#8CD094"
+start = "458.4 mya"
+
+[age.Katian]
+color = "#99D69F"
+start = "453.0 mya"
+
+[age.Hirnantian]
+color = "#A6DBAB"
+start = "445.2 mya"
+
+
+
+[period.Silurian]
+color = "#B3E1B6"
+child = "Llandovery"
+
+[epoch.Llandovery]
+color = "#99D7B3"
+child = "Rhuddanian"
+
+[age.Rhuddanian]
+color = "#A6DCB5"
+start = "443.8 mya"
+
+[age.Aeronian]
+color = "#B3E1C2"
+start = "440.8 mya"
+
+[age.Telychian]
+color = "#BFE6CF"
+start = "438.5 mya"
+
+[epoch.Wenlock]
+color = "#B3E1C2"
+child = "Sheinwoodian"
+
+[age.Sheinwoodian]
+color = "#BFE6C3"
+start = "433.4 mya"
+
+[age.Homerian]
+color = "#CCEBD1"
+start = "430.5 mya"
+
+[epoch.Ludlow]
+color = "#BFE6CF"
+child = "Gorstian"
+
+[age.Gorstian]
+color = "#CCECDD"
+start = "427.4 mya"
+
+[age.Ludfordian]
+color = "#D9F0DF"
+start = "425.6 mya"
+
+[epoch.Pridoli]
+color = "#E6F5E1"
+start = "423.0 mya"
+
+
+
+[period.Devonian]
+color = "#CB8C37"
+child = "Lower Devonian"
+
+[epoch."Lower Devonian"]
+color = "#E5AC4D"
+child = "Lochkovian"
+
+[age.Lochkovian]
+color = "#E5B75A"
+start = "419.2 mya"
+
+[age.Pragian]
+color = "#E5C468"
+start = "410.8 mya"
+
+[age.Emsian]
+color = "#E5D075"
+start = "407.6 mya"
+
+[epoch."Middle Devonian"]
+color = "#F1C868"
+child = "Eifelian"
+
+[age.Eifelian]
+color = "#F1D576"
+start = "393.3 mya"
+
+[age.Givetian]
+color = "#F1E185"
+start = "387.7 mya"
+
+[epoch."Upper Devonian"]
+color = "#F1E19D"
+child = "Frasnian"
+
+[age.Frasnian]
+color = "#F2EDAD"
+start = "382.7 mya"
+
+[age.Famennian]
+color = "#F2EDB3"
+start = "372.2 mya"
+
+
+
+[period.Carboniferous]
+color = "#67A599"
+child = "Lower Mississippian"
+
+# Mississippian - #678F66
+
+[epoch."Lower Mississippian"]
+color = "#80AB6C"
+child = "Tournaisian"
+
+[age.Tournaisian]
+color = "#8CB06C"
+start = "358.9 mya"
+
+[epoch."Middle Mississippian"]
+color = "#99B46C"
+child = "Visean"
+
+[age.Visean]
+color = "#A6B96C"
+start = "346.7 mya"
+
+[epoch."Upper Mississippian"]
+color = "#B3BE6C"
+child = "Serpukhovian"
+
+[age.Serpukhovian]
+color = "#BFC26B"
+start = "330.9 mya"
+
+# Pennsylvanian - #7EBCC6
+
+[epoch."Lower Pennsylvanian"]
+color = "#8CBEB4"
+child = "Bashkirian"
+
+[age.Bashkirian]
+color = "#99C2B5"
+start = "323.2 mya"
+
+[epoch."Middle Pennsylvanian"]
+color = "#A6C7B7"
+child = "Moscovian"
+
+[age.Moscovian]
+color = "#B3CBB9"
+start = "315.2 mya"
+
+[epoch."Upper Pennsylvanian"]
+color = "#BFD0BA"
+child = "Kasimovian"
+
+[age.Kasimovian]
+color = "#BFD0C5"
+start = "307.0 mya"
+
+[age.Gzhelian]
+color = "#CCD4C7"
+start = "303.7 mya"
+
+
+
+[period.Permian]
+color = "#F04028"
+child = "Cisuralian"
+
+[epoch.Cisuralian]
+color = "#EF5845"
+child = "Asselian"
+
+[age.Asselian]
+color = "#E36350"
+start = "298.9 mya"
+
+[age.Sakmarian]
+color = "#E36F5C"
+start = "293.52 mya"
+
+[age.Artinskian]
+color = "#E37B68"
+start = "290.1 mya"
+
+[age.Kungurian]
+color = "#E38776"
+start = "283.5 mya"
+
+[epoch.Guadalupian]
+color = "#FB745C"
+child = "Roadian"
+
+[age.Roadian]
+color = "#FB8069"
+start = "273.01 mya"
+
+[age.Wordian]
+color = "#FB8D76"
+start = "266.9 mya"
+
+[age.Capitanian]
+color = "#FB9A85"
+start = "264.28 mya"
+
+[epoch.Lopingian]
+color = "#FBA794"
+child = "Wuchiapingian"
+
+[age.Wuchiapingian]
+color = "#FCB4A2"
+start = "259.51 mya"
+
+[age.Changhsingian]
+color = "#FCC0B2"
+start = "254.14 mya"
+
+
+
+[era.Mesozoic]
+color = "#67C5CA"
+child = "Triassic"
+
+[period.Triassic]
+color = "#812B92"
+child = "Lower Triassic"
+
+[epoch."Lower Triassic"]
+color = "#983999"
+child = "Induan"
+
+[age.Induan]
+color = "#A4469F"
+start = "251.902 mya"
+
+[age.Olenekian]
+color = "#B051A5"
+start = "251.2 mya"
+
+[epoch."Middle Triassic"]
+color = "#B168B1"
+child = "Anisian"
+
+[age.Anisian]
+color = "#BC75B7"
+start = "247.2 mya"
+
+[age.Ladinian]
+color = "#C983BF"
+start = "242 mya"
+
+[epoch."Upper Triassic"]
+color = "#BD8CC3"
+child = "Carnian"
+
+[age.Carnian]
+color = "#C99BCB"
+start = "237 mya"
+
+[age.Norian]
+color = "#D6AAD3"
+start = "227 mya"
+
+[age.Rhaetian]
+color = "#E3B9DB"
+start = "208.5 mya"
+
+
+
+
+[period.Jurassic]
+color = "#34B2C9"
+child = "Lower Jurassic"
+
+[epoch."Lower Jurassic"]
+color = "#42AED0"
+child = "Hettangian"
+
+[age.Hettangian]
+color = "#4EB3D3"
+start = "201.4 mya"
+
+[age.Sinemurian]
+color = "#67BCD8"
+start = "199.5 mya"
+
+[age.Pliensbachian]
+color = "#80C5DD"
+start = "192.9 mya"
+
+[age.Toarcian]
+color = "#99CEE3"
+start = "184.2 mya"
+
+[epoch."Middle Jurassic"]
+color = "#80CFD8"
+child = "Aalenian"
+
+[age.Aalenian]
+color = "#9AD9DD"
+start = "174.7 mya"
+
+[age.Bajocian]
+color = "#A6DDE0"
+start = "170.9 mya"
+
+[age.Bathonian]
+color = "#B3E2E3"
+start = "168.2 mya"
+
+[age.Callovian]
+color = "#BFE7E5"
+start = "165.3 mya"
+
+[epoch."Upper Jurassic"]
+color = "#B3E3EE"
+child = "Oxfordian"
+
+[age.Oxfordian]
+color = "#BFE7F1"
+start = "161.5 mya"
+
+[age.Kimmeridgian]
+color = "#CCECF4"
+start = "154.8 mya"
+
+[age.Tithonian]
+color = "#D9F1F7"
+start = "149.2 mya"
+
+
+
+[period.Cretaceous]
+color = "#7FC64E"
+child = "Lower Cretaceous"
+
+[epoch."Lower Cretaceous"]
+color = "#8CCD57"
+child = "Berriasian"
+
+[age.Berriasian]
+color = "#8CCD60"
+start = "145.0 mya"
+
+[age.Valanginian]
+color = "#99D36A"
+start = "139.8 mya"
+
+[age.Hauterivian]
+color = "#A6D975"
+start = "132.6 mya"
+
+[age.Barremian]
+color = "#B3DF7F"
+start = "125.77 mya"
+
+[age.Aptian]
+color = "#BFE48A"
+start = "121.4 mya"
+
+[age.Albian]
+color = "#CCEA97"
+start = "113.0 mya"
+
+[epoch."Upper Cretaceous"]
+color = "#A6D84A"
+child = "Cenomanian"
+
+[age.Cenomanian]
+color = "#B3DE53"
+start = "100.5 mya"
+
+[age.Turonian]
+color = "#BFE35D"
+start = "93.9 mya"
+
+[age.Coniacian]
+color = "#CCE968"
+start = "89.8 mya"
+
+[age.Santonian]
+color = "#D9EF74"
+start = "86.3 mya"
+
+[age.Campanian]
+color = "#E6F47F"
+start = "83.6 mya"
+
+[age.Maastrichtian]
+color = "#F2FA8C"
+start = "72.1 mya"
+
+
+
+[era.Cenozoic]
+color = "#F2F91D"
+child = "Paleogene"
+
+[period.Paleogene]
+color = "#FD9A52"
+child = "Paleocene"
+
+[epoch.Paleocene]
+color = "#FDA75F"
+child = "Danian"
+
+[age.Danian]
+color = "#FDB462"
+start = "66.0 mya"
+
+[age.Selandian]
+color = "#FEBF65"
+start = "61.6 mya"
+
+[age.Thanetian]
+color = "#FDBF6F"
+start = "59.2 mya"
+
+[epoch.Eocene]
+color = "#FDB46C"
+child = "Ypresian"
+
+[age.Ypresian]
+color = "#FCA773"
+start = "56.0 mya"
+
+[age.Lutetian]
+color = "#FDB482"
+start = "47.8 mya"
+
+[age.Bartonian]
+color = "#FDC091"
+start = "41.2 mya"
+
+[age.Priabonian]
+color = "#FDCDA1"
+start = "37.71 mya"
+
+[epoch.Oligocene]
+color = "#FEC07A"
+child = "Rupelian"
+
+[age.Rupelian]
+color = "#FED99A"
+start = "33.9 mya"
+
+[age.Chattian]
+color = "#FEE6AA"
+start = "27.82 mya"
+
+
+
+[period.Neogene]
+color = "#FFE619"
+child = "Miocene"
+
+[epoch.Miocene]
+color = "#FFFF00"
+child = "Aquitanian"
+
+# Lower/Early Miocene Subseries - #FFEC55
+
+[age.Aquitanian]
+color = "#FFFF33"
+start = "23.03 mya"
+
+[age.Burdigalian]
+color = "#FFFF41"
+start = "20.44 mya"
+
+# Middle Miocene Subseries - #FFEC73
+
+[age.Langhian]
+color = "#FFFF4D"
+start = "15.98 mya"
+
+[age.Serravallian]
+color = "#FFFF59"
+start = "13.82 mya"
+
+# Upper/Late Miocene Subseries - #FFEC8C
+
+[age.Tortonian]
+color = "#FFFF66"
+start = "11.63 mya"
+
+[age.Messinian]
+color = "#FFFF73"
+start = "7.246 mya"
+
+[epoch.Pliocene]
+color = "#FFFF99"
+child = "Zanclean"
+
+# Lower/Early Pliocene Subseries - #FFF2C3
+
+[age.Zanclean]
+color = "#FFFFB3"
+start = "5.333 mya"
+
+# Upper/Late Pliocene Subseries - #FFF2CD
+
+[age.Piacenzian]
+color = "#FFFFBF"
+start = "3.600 mya"
+
+
+
+[period.Quaternary]
+color = "#F9F97F"
+child = "Pleistocene"
+
+[epoch.Pleistocene]
+color = "#FFEFAF"
+child = "Gelasian"
+
+# Lower/Early Pleistocene Subseries - #FFF0B9
+
+[age.Gelasian]
+color = "#FFEDB3"
+start = "2.58 mya"
+
+[age.Calabrian]
+color = "#FFF2BA"
+start = "1.80 mya"
+
+# Middle Pleistocene Subseries - #FFF2C7
+
+[age.Chibanian]
+color = "#FFF2C7"
+start = "0.774 mya"
+
+# Upper/Late Pleistocene Subseries - #FFF2D3
+
+[age."Upper Pleistocene"]
+color = "#FFF2D3"
+start = "0.129 mya"
+
+[epoch.Holocene]
+color = "#FEEBD2"
+child = "Greenlandian"
+
+[age.Greenlandian]
+color = "#FEECDB"
+start = "0.0117 mya"
+
+[age.Northgrippian]
+color = "#FDECE4"
+start = "0.0082 mya"
+
+[age.Meghalayan]
+color = "#FDEDEC"
+start = "0.0042 mya"
