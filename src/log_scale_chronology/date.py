@@ -6,6 +6,14 @@ from .config import (
 )
 
 
+DATE_PATTERN = r"""
+(?P<number>\d+(\.\d+)?)
+(?P<month>-\d+)?
+(?P<day>-\d+)?
+ (?P<unit>bya|mya|kya|BC|AD|present)
+""".replace("\n", "")
+
+
 class Date:
     """
     Stores dates as a number between 1 (one year ago)
@@ -14,7 +22,10 @@ class Date:
     def __init__(self, string: str):
         self.string = string
 
-        number, unit = re.match(r"(?P<number>\d+(\.\d+)?) (?P<year>bya|mya|kya|BC|AD|present)", string).group("number", "year")
+        number, month, day, unit = (
+            re.match(DATE_PATTERN, string)
+            .group("number", "month", "day", "unit")
+        )
         number = float(number)
         if (unit == "bya"):
             number = number * 10**9 - BP_EPOCH + PRESENT
@@ -30,6 +41,20 @@ class Date:
             number = 1 # Fixed to the very end of the image
         else:
             raise ValueError(f"Unsupported year unit: {unit}")
+
+        if month and not day:
+            month = int(month[1:])
+            number -= (month-1) / 12
+        if month and day:
+            month = int(month[1:])
+            day = int(day[1:])
+            # Technically not accurate.
+            # An accurate implementation would take into account
+            # Varying lengths of months, leap years.
+            # Since all we want is a tack on a timeline,
+            # It doesn't matter, this is good enough.
+            number -= (month-1) / 12 + (day-1) / 365
+
         self.value = number
 
     @property
