@@ -10,7 +10,7 @@ DATE_PATTERN = r"""
 (?P<number>\d+(\.\d+)?)
 (?P<month>-\d+)?
 (?P<day>-\d+)?
- (?P<unit>bya|mya|kya|BC|AD|present)
+ (?P<unit>bya|mya|kya|BC|AD|present|ky before 2015)
 """.replace("\n", "")
 
 
@@ -33,6 +33,8 @@ class Date:
             number = number * 10**6 - BP_EPOCH + PRESENT
         elif (unit == "kya"):
             number = number * 10**3 - BP_EPOCH + PRESENT
+        elif (unit == "ky before 2015"):
+            number = number * 10**3 - 2015 + PRESENT
         elif (unit == "BC"):
             number += PRESENT
         elif (unit == "AD"):

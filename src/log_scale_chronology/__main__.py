@@ -1,3 +1,5 @@
+import csv
+
 from PIL import Image, ImageDraw
 import tomli
 
@@ -42,6 +44,26 @@ def draw_tacks(draw: ImageDraw.Draw,
     )
     for date, description in tacks:
         draw_tack(draw, description, date.y, x_offset=x_offset)
+
+
+MAGNIFIER = 10
+def draw_csv(draw: ImageDraw.Draw,
+             offset: int,
+             filepath: str,
+             ):
+    with open(filepath) as f:
+        data = csv.reader(f)
+        unit, _ = next(data)
+        prev_date, prev_temp = next(data)
+        for date, temp in data:
+            draw.line(
+                ((offset + float(prev_temp) * MAGNIFIER,
+                  Date(f"{prev_date} {unit}").y),
+                 (offset + float(temp) * MAGNIFIER,
+                  Date(f"{date} {unit}").y)),
+                fill=COLOR,
+            )
+            prev_date, prev_temp = date, temp
 
 
 def plot():
@@ -133,11 +155,19 @@ def plot():
     with open("assets/events.toml", "rb") as f:
         events = tomli.load(f)
 
+    draw_csv(draw, 1200, "assets/paleotemps/friedrich-2012-hansen-2013.csv")
+    draw_csv(draw, 1250, "assets/paleotemps/zachos-2008-hansen-2013.csv")
+    draw_csv(draw, 1300, "assets/paleotemps/lisiecki-and-raymo-2005-hansen-2013.csv")
+    draw_csv(draw, 1350, "assets/paleotemps/epica-antarctica-2009.csv")
+    draw_csv(draw, 1400, "assets/paleotemps/ngrip-greenland-johnsen-1989.csv")
+    draw_csv(draw, 1450, "assets/paleotemps/markott-2013.csv")
+
     draw_tacks(
         draw,
         [(Date(date), desc) for date, desc in events.items()],
-        1130
+        1500
     )
+
     im.save("out.png")
 
 
