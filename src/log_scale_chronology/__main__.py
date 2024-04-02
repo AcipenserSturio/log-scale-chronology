@@ -33,6 +33,16 @@ def draw_text(draw: ImageDraw.Draw, text: str, x: int, y: int):
         anchor="lm",
     )
 
+def draw_tacks(draw: ImageDraw.Draw,
+               tacks: list[tuple[Date, str]],
+               x_offset: int):
+    draw.line(
+        ((x_offset, 0), (x_offset, HEIGHT)),
+        fill=COLOR,
+    )
+    for date, description in tacks:
+        draw_tack(draw, description, date.y, x_offset=x_offset)
+
 
 def plot():
     im = Image.new("RGBA", (WIDTH, HEIGHT), BACKGROUND_COLOR)
@@ -114,22 +124,20 @@ def plot():
                 (span.start.y + span.end.y) / 2,
             )
 
-    draw.line(
-        ((1000, 0), (1000, HEIGHT)),
-        fill=COLOR,
+    draw_tacks(
+        draw,
+        [(date, date.string) for date in YEAR_TACKS],
+        1000
     )
-    for date in YEAR_TACKS:
-        draw_tack(draw, date.string, date.y, x_offset=1000)
 
-    draw.line(
-        ((1100, 0), (1100, HEIGHT)),
-        fill=COLOR,
-    )
     with open("assets/events.toml", "rb") as f:
         events = tomli.load(f)
-    for date, description in events.items():
-        draw_tack(draw, description, Date(date).y, x_offset=1100)
 
+    draw_tacks(
+        draw,
+        [(Date(date), desc) for date, desc in events.items()],
+        1130
+    )
     im.save("out.png")
 
 
