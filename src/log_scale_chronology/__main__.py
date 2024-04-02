@@ -2,11 +2,14 @@ import math
 import re
 
 from PIL import Image, ImageDraw, ImageFont
+import tomli
+
+from .stratigraphy import Tree
 
 FONTSIZE = 20
 FONT = ImageFont.truetype("/usr/share/fonts/noto/NotoSerif-Bold.ttf", FONTSIZE)
 
-WIDTH, HEIGHT = 200, 4000
+WIDTH, HEIGHT = 1000, 4000
 BACKGROUND_COLOR = (255, 255, 255, 255)
 COLOR = (0, 0, 0, 255)
 
@@ -23,8 +26,9 @@ YEAR_TACKS = [
 ]
 
 
-def str_to_year(string) -> int | float:
-    number, unit = re.match(r"(?P<number>\d+(\.\d+)?) (?P<year>bya|mya|kya|BC|AD)", string).group("number", "year")
+def str_to_year(string: str) -> int | float:
+    print(string)
+    number, unit = re.match(r"(?P<number>\d+(\.\d+)?) (?P<year>bya|mya|kya|BC|AD|present)", string).group("number", "year")
     number = float(number)
     if (unit == "bya"):
         number = number * 10**9 - BP_EPOCH + PRESENT
@@ -36,6 +40,8 @@ def str_to_year(string) -> int | float:
         number += PRESENT
     elif (unit == "AD"):
         number = PRESENT - number
+    elif (unit == "present"):
+        number = 1 # Fixed to the very end of the image
     else:
         raise ValueError(f"Unsupported year unit: {unit}")
     return number
@@ -44,6 +50,8 @@ def str_to_year(string) -> int | float:
 def year_to_percentile(year: int | float) -> float:
     return 1 - math.log(year) / math.log(BIG_BANG)
 
+def year_to_y(year: str) -> int:
+    return round(year_to_percentile(str_to_year(year)) * HEIGHT)
 
 def draw_text(draw: ImageDraw.Draw, text: str, year: int | float):
     y = round(year_to_percentile(year) * HEIGHT)
@@ -70,6 +78,43 @@ def plot():
 
     # draw.rectangle((200, 100, 300, 200), fill=(0, 192, 192), outline=(255, 255, 255))
     # draw_node(im, draw, 0, 0)
+
+    with open("assets/stratigraphy.toml", "rb") as f:
+        strat = Tree(tomli.load(f))
+    print(strat)
+
+    for span in strat.eons:
+        draw.rectangle(
+            ((0, year_to_y(span.start)),
+            (200, year_to_y(span.end))),
+            fill=span.color,
+        )
+    for span in strat.eras:
+        draw.rectangle(
+            ((200, year_to_y(span.start)),
+            (400, year_to_y(span.end))),
+            fill=span.color,
+        )
+    for span in strat.periods:
+        draw.rectangle(
+            ((400, year_to_y(span.start)),
+            (600, year_to_y(span.end))),
+            fill=span.color,
+        )
+    for span in strat.epochs:
+        draw.rectangle(
+            ((600, year_to_y(span.start)),
+            (800, year_to_y(span.end))),
+            fill=span.color,
+        )
+    for span in strat.ages:
+        draw.rectangle(
+            ((800, year_to_y(span.start)),
+            (1000, year_to_y(span.end))),
+            fill=span.color,
+        )
+
+
     for year in YEAR_TACKS:
         draw_year(draw, year)
 

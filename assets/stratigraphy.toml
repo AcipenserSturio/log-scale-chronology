@@ -1,0 +1,147 @@
+[eon.Hadean]
+color = "#AE027E"
+start = "4567 mya"
+
+[eon.Archean]
+color = "#F0047F"
+child = "Eoarchean"
+
+[era.Eoarchean]
+color = "#DA037F"
+start = "4031 mya"
+
+[era.Paleoarchean]
+color = "#F4449F"
+start = "3600 mya"
+
+[era.Mesoarchean]
+color = "#F768A9"
+start = "3200 mya"
+
+[era.Neoarchean]
+color = "#F99BC1"
+start = "2800 mya"
+
+[eon.Proterozoic]
+color = "#F73563"
+child = "Paleoproterozoic"
+
+[era.Paleoproterozoic]
+color = "#F74370"
+child = "Siderian"
+
+[period.Siderian]
+color = "#F74F7C"
+start = "2500 mya"
+
+[period.Rhyacian]
+color = "#F75B89"
+start = "2300 mya"
+
+[period.Orosirian]
+color = "#F76898"
+start = "2050 mya"
+
+[period.Statherian]
+color = "#F875A7"
+start = "1800 mya"
+
+[era.Mesoproterozoic]
+color = "#FDB462"
+child = "Calymmian"
+
+[period.Calymmian]
+color = "#FDC07A"
+start = "1600 mya"
+
+[period.Ectasian]
+color = "#FDCC8A"
+start = "1400 mya"
+
+[period.Stenian]
+color = "#FED99A"
+start = "1200 mya"
+
+[era.Neoproterozoic]
+color = "#FEB342"
+child = "Tonian"
+
+[period.Tonian]
+color = "#FEBF4E"
+start = "1000 mya"
+
+[period.Cryogenian]
+color = "#FECC5C"
+start = "720 mya"
+
+[period.Ediacaran]
+color = "#FED96A"
+start = "635 mya"
+
+[eon.Phanerozoic]
+color = "#9AD9DD"
+child = "Paleozoic"
+
+[era.Paleozoic]
+color = "#99C08D"
+child = "Cambrian"
+
+[period.Cambrian]
+color = "#7FA056"
+child = "Terreneuvian"
+
+[epoch.Terreneuvian]
+color = "#8CB06C"
+child = "Fortunian"
+
+[age.Fortunian]
+color = "#99B575"
+start = "538.8 mya"
+
+[age."Stage 2"]
+color = "#A6BA80"
+start = "529 mya"
+
+[epoch."Series 2"]
+color = "#99C078"
+child = "Stage 3"
+
+[age."Stage 3"]
+color = "#A6C583"
+start = "521 mya"
+
+[age."Stage 4"]
+color = "#B3CA8E"
+start = "514 mya"
+
+[epoch.Miaolingian]
+color = "#A6CF86"
+child = "Wuliuan"
+
+[age.Wuliuan]
+color = "#B3D492"
+start = "509 mya"
+
+[age.Drumian]
+color = "#BFD99D"
+start = "504.5 mya"
+
+[age.Guzhangian]
+color = "#CCDFAA"
+start = "500.5 mya"
+
+[epoch.Furongian]
+color = "#B3E095"
+child = "Paibian"
+
+[age.Paibian]
+color = "#CCEBAE"
+start = "497 mya"
+
+[age.Jiangshanian]
+color = "#D9F0BB"
+start = "494 mya"
+
+[age."Stage 10"]
+color = "#E6F5C9"
+start = "489.5 mya"
