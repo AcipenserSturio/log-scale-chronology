@@ -5,14 +5,15 @@ description = "Default template for PDM package"
 authors = [
     {name = "AcipenserSturio", email = "AcipenserSturio@users.noreply.github.com"},
 ]
-dependencies = []
+dependencies = [
+    "Pillow>=10.3.0",
+]
 requires-python = "==3.11.*"
 readme = "README.md"
 license = {text = "GPL-3.0"}
 
-
 [tool.pdm]
-distribution = false
+distribution = true
 
 [tool.pdm.scripts]
-build = "python -m log-scale-chronology"
+build = "python -m log_scale_chronology"
