@@ -1,4 +1,5 @@
 import csv
+from pathlib import Path
 
 from PIL import Image, ImageDraw
 import tomli
@@ -7,7 +8,7 @@ from .date import Date
 from .stratigraphy import Tree
 from .config import (
     FONT, WIDTH, HEIGHT,
-    BACKGROUND_COLOR, COLOR,
+    BACKGROUND_COLOR, COLOR, SEMI_TRANSPARENT,
     YEAR_TACKS,
 )
 YEAR_TACKS = list(map(Date, YEAR_TACKS))
@@ -47,10 +48,14 @@ def draw_tacks(draw: ImageDraw.Draw,
 
 
 MAGNIFIER = 10
-def draw_csv(draw: ImageDraw.Draw,
+def draw_csv(im: Image,
              offset: int,
-             filepath: str,
-             ):
+             filepath: Path,
+             ) -> Image:
+
+    im_over = Image.new("RGBA", (WIDTH, HEIGHT), (0, 0, 0, 0))
+    draw = ImageDraw.Draw(im_over)
+
     with open(filepath) as f:
         data = csv.reader(f)
         unit, _ = next(data)
@@ -61,9 +66,10 @@ def draw_csv(draw: ImageDraw.Draw,
                   Date(f"{prev_date} {unit}").y),
                  (offset + float(temp) * MAGNIFIER,
                   Date(f"{date} {unit}").y)),
-                fill=COLOR,
+                fill=SEMI_TRANSPARENT,
             )
             prev_date, prev_temp = date, temp
+    im.alpha_composite(im_over)
 
 
 def plot():
@@ -152,20 +158,16 @@ def plot():
         1000
     )
 
+    for filepath in Path("assets/paleotemps").glob("*.csv"):
+        draw_csv(im, 1200, filepath)
+
     with open("assets/events.toml", "rb") as f:
         events = tomli.load(f)
-
-    draw_csv(draw, 1200, "assets/paleotemps/friedrich-2012-hansen-2013.csv")
-    draw_csv(draw, 1250, "assets/paleotemps/zachos-2008-hansen-2013.csv")
-    draw_csv(draw, 1300, "assets/paleotemps/lisiecki-and-raymo-2005-hansen-2013.csv")
-    draw_csv(draw, 1350, "assets/paleotemps/epica-antarctica-2009.csv")
-    draw_csv(draw, 1400, "assets/paleotemps/ngrip-greenland-johnsen-1989.csv")
-    draw_csv(draw, 1450, "assets/paleotemps/markott-2013.csv")
 
     draw_tacks(
         draw,
         [(Date(date), desc) for date, desc in events.items()],
-        1500
+        1450
     )
 
     im.save("out.png")
