@@ -5,6 +5,8 @@ from dataclasses import dataclass, field
 
 from PIL import ImageDraw
 
+from .date import Date
+
 IDS_TO_LEVELS = [
     "eon",
     "era",
@@ -20,16 +22,14 @@ class Tree:
         self.spans = defaultdict(list)
         for level_name, level_details in spans.items():
             for span_name, span_details in level_details.items():
-                self.spans[level_name].append(
-                    Span(
-                        tree = self,
-                        level = level_name,
-                        name = span_name,
-                        _color = span_details["color"],
-                        _start = span_details["start"] if "start" in span_details else None,
-                        _child = span_details["child"] if "child" in span_details else None,
-                    )
-                )
+                self.spans[level_name].append(Span(
+                    tree = self,
+                    level = level_name,
+                    name = span_name,
+                    _color = span_details["color"],
+                    _start = Date(span_details["start"]) if "start" in span_details else None,
+                    _child = span_details["child"] if "child" in span_details else None,
+                ))
 
     def get(self, level: str, span_name: Span) -> Span:
         for span in self.spans[level]:
@@ -70,14 +70,14 @@ class Span:
     level: str
     name: str
     _color: str
-    _start: str | None
+    _start: Date | None
     _child: str | None
 
     def next_span(self) -> Span | None:
         return self.tree.next_span(self)
 
     @property
-    def start(self):
+    def start(self) -> Date:
         if self._start:
             return self._start
         if not self._child:
@@ -89,10 +89,10 @@ class Span:
         return IDS_TO_LEVELS[LEVELS_TO_IDS[self.level]+1]
 
     @property
-    def end(self):
+    def end(self) -> Date:
         next_span = self.next_span()
         if not next_span:
-            return "0 present"
+            return Date("0 present")
         return next_span.start
 
     @property
