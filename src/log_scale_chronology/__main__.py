@@ -11,13 +11,13 @@ from .config import (
 YEAR_TACKS = list(map(Date, YEAR_TACKS))
 
 
-def draw_tack(draw: ImageDraw.Draw, text: str, y: int):
+def draw_tack(draw: ImageDraw.Draw, text: str, y: int, x_offset: int = 0):
     draw.line(
-        ((0, y), (5, y)),
+        ((0 + x_offset, y), (5 + x_offset, y)),
         fill=COLOR,
     )
     draw.text(
-        (10, y),
+        (10 + x_offset, y),
         text,
         fill=COLOR,
         font=FONT,
@@ -46,76 +46,89 @@ def plot():
 
     for span in strat.eons:
         draw.rectangle(
-            ((100, span.start.y),
-            (300, span.end.y)),
+            ((0, span.start.y),
+            (200, span.end.y)),
             fill=span.color,
         )
         if span.end.y - span.start.y > 15:
             draw_text(
                 draw,
                 span.name,
-                110,
+                10,
                 (span.start.y + span.end.y) / 2,
             )
 
     for span in strat.eras:
         draw.rectangle(
-            ((300, span.start.y),
-            (500, span.end.y)),
+            ((200, span.start.y),
+            (400, span.end.y)),
             fill=span.color,
         )
         if span.end.y - span.start.y > 15:
             draw_text(
                 draw,
                 span.name,
-                310,
+                210,
                 (span.start.y + span.end.y) / 2,
             )
 
     for span in strat.periods:
         draw.rectangle(
-            ((500, span.start.y),
-            (700, span.end.y)),
+            ((400, span.start.y),
+            (600, span.end.y)),
             fill=span.color,
         )
         if span.end.y - span.start.y > 15:
             draw_text(
                 draw,
                 span.name,
-                510,
+                410,
                 (span.start.y + span.end.y) / 2,
             )
 
     for span in strat.epochs:
         draw.rectangle(
-            ((700, span.start.y),
-            (900, span.end.y)),
+            ((600, span.start.y),
+            (800, span.end.y)),
             fill=span.color,
         )
         if span.end.y - span.start.y > 15:
             draw_text(
                 draw,
                 span.name,
-                710,
+                610,
                 (span.start.y + span.end.y) / 2,
             )
 
     for span in strat.ages:
         draw.rectangle(
-            ((900, span.start.y),
-            (1100, span.end.y)),
+            ((800, span.start.y),
+            (1000, span.end.y)),
             fill=span.color,
         )
         if span.end.y - span.start.y > 15:
             draw_text(
                 draw,
                 span.name,
-                910,
+                810,
                 (span.start.y + span.end.y) / 2,
             )
 
+    draw.line(
+        ((1000, 0), (1000, HEIGHT)),
+        fill=COLOR,
+    )
     for date in YEAR_TACKS:
-        draw_tack(draw, date.string, date.y)
+        draw_tack(draw, date.string, date.y, x_offset=1000)
+
+    draw.line(
+        ((1100, 0), (1100, HEIGHT)),
+        fill=COLOR,
+    )
+    with open("assets/events.toml", "rb") as f:
+        events = tomli.load(f)
+    for date, description in events.items():
+        draw_tack(draw, description, Date(date).y, x_offset=1100)
 
     im.save("out.png")
 

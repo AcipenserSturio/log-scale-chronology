@@ -1,3 +1,6 @@
+# Source: https://stratigraphy.org/chart
+# Version: https://stratigraphy.org/ICSchart/ChronostratChart2023-09.pdf
+
 [eon.Hadean]
 color = "#AE027E"
 start = "4567 mya"
