@@ -10,7 +10,7 @@ DATE_PATTERN = r"""
 (?P<number>\d+(\.\d+)?)
 (?P<month>-\d+)?
 (?P<day>-\d+)?
- (?P<unit>млрд лет назад|млн лет назад|тыс. лет назад|до н.э.|н.э.|present|ky before 2015)
+ (?P<unit>млрд лет|млн лет|тыс. лет|до н.э.|н.э.|present|ky before 2015)
 """.replace("\n", "")
 
 
@@ -27,11 +27,11 @@ class Date:
             .group("number", "month", "day", "unit")
         )
         number = float(number)
-        if (unit == "млрд лет назад"):
+        if (unit == "млрд лет"):
             number = number * 10**9 - BP_EPOCH + PRESENT
-        elif (unit == "млн лет назад"):
+        elif (unit == "млн лет"):
             number = number * 10**6 - BP_EPOCH + PRESENT
-        elif (unit == "тыс. лет назад"):
+        elif (unit == "тыс. лет"):
             number = number * 10**3 - BP_EPOCH + PRESENT
         elif (unit == "ky before 2015"):
             number = number * 10**3 - 2015 + PRESENT

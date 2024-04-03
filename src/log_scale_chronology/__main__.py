@@ -72,7 +72,7 @@ def draw_temp_scale(im: Image,
 
     for temp in range(-10, 25):
         draw.line(
-            ((offset + temp * MAGNIFIER, Date("120 млн лет назад").y),
+            ((offset + temp * MAGNIFIER, Date("120 млн лет").y),
              (offset + temp * MAGNIFIER, HEIGHT)),
             fill=(SEMI_TRANSPARENT_COLORED
                   if temp % 5 else SEMI_TRANSPARENT),
@@ -119,10 +119,10 @@ def plot():
     )
 
     print("Drawing temperature scale")
-    draw_temp_scale(im, 1200 + 175 + 120)
+    draw_temp_scale(im, 1200 + 175 + 40)
     for filepath in Path("assets/paleotemps").glob("*.csv"):
         print(f"Drawing {filepath.stem}")
-        draw_csv(im, 1200 + 175 + 120, filepath)
+        draw_csv(im, 1200 + 175 + 40, filepath)
 
     print("Loading events")
     events_path = (
@@ -136,7 +136,7 @@ def plot():
     draw_tacks(
         draw,
         [(Date(date), desc) for date, desc in events.items()],
-        1450 + 175 + 120
+        1450 + 175 + 40
     )
 
     print("Saving image")
