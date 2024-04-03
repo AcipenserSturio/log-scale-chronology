@@ -10,7 +10,7 @@ COLOR = (0, 0, 0, 255)
 SEMI_TRANSPARENT = (0, 0, 0, 100)
 
 BP_EPOCH = 1950
-PRESENT = 2024
+PRESENT = 2025
 BIG_BANG = (13.787 * 10**9 # Before Present
             - BP_EPOCH + PRESENT) # -> Current day
 
@@ -22,7 +22,7 @@ YEAR_TACKS = [
     "6 mya", "4 mya", "2.5 mya", "1.5 mya", "1 mya",
     "600 kya", "400 kya", "250 kya", "150 kya", "100 kya",
     "60 kya", "40 kya", "25 kya", "15 kya", "10 kya",
-    "3500 BC", "1500 BC", "1 AD", "700 AD", "1200 AD", "1500 AD", "1700 AD", "1820 AD", "1900 AD", "1940 AD", "1970 AD", "1990 AD", "2005 AD", "2015 AD", "2020 AD", "2022-01 AD", "2022-12 AD"
+    "3500 BC", "1500 BC", "1 AD", "700 AD", "1200 AD", "1500 AD", "1700 AD", "1820 AD", "1900 AD", "1940 AD", "1970 AD", "1990 AD", "2005 AD", "2015 AD", "2020 AD", "2022-02 AD", "2023-06 AD"
 
 ]
 
