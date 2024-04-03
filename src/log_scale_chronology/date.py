@@ -10,7 +10,7 @@ DATE_PATTERN = r"""
 (?P<number>\d+(\.\d+)?)
 (?P<month>-\d+)?
 (?P<day>-\d+)?
- (?P<unit>bya|mya|kya|BC|AD|present|ky before 2015)
+ (?P<unit>млрд лет назад|млн лет назад|тыс. лет назад|до н.э.|н.э.|present|ky before 2015)
 """.replace("\n", "")
 
 
@@ -27,17 +27,17 @@ class Date:
             .group("number", "month", "day", "unit")
         )
         number = float(number)
-        if (unit == "bya"):
+        if (unit == "млрд лет назад"):
             number = number * 10**9 - BP_EPOCH + PRESENT
-        elif (unit == "mya"):
+        elif (unit == "млн лет назад"):
             number = number * 10**6 - BP_EPOCH + PRESENT
-        elif (unit == "kya"):
+        elif (unit == "тыс. лет назад"):
             number = number * 10**3 - BP_EPOCH + PRESENT
         elif (unit == "ky before 2015"):
             number = number * 10**3 - 2015 + PRESENT
-        elif (unit == "BC"):
+        elif (unit == "до н.э."):
             number += PRESENT
-        elif (unit == "AD"):
+        elif (unit == "н.э."):
             number = PRESENT - number
         elif (unit == "present"):
             number = 1 # Fixed to the very end of the image

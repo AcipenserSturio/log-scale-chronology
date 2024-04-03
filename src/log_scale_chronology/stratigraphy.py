@@ -18,7 +18,7 @@ IDS_TO_LEVELS = [
     "age",
 ]
 LEVELS_TO_IDS = {k: v for v, k in enumerate(IDS_TO_LEVELS)}
-BLOCK_SIZE = 200
+BLOCK_SIZE = 235
 
 
 class Tree:

@@ -1,96 +1,96 @@
 # Source: https://stratigraphy.org/chart
 # Version: https://stratigraphy.org/ICSchart/ChronostratChart2023-09.pdf
 
-[eon."Early universe"] # Not a real eon; I wanted to fill in the gap
+[eon."Ранняя Вселенная"] # Not a real eon; I wanted to fill in the gap
 color = "#131313"
-start = "13.787 bya"
+start = "13.787 млрд лет назад"
 text_color = "#eeeeee"
 
 [eon.Hadean]
 color = "#AE027E"
-start = "4567 mya"
+start = "4567 млн лет назад"
 
-[eon.Archean]
+[eon."Архей"]
 color = "#F0047F"
 child = "Eoarchean"
 
 [era.Eoarchean]
 color = "#DA037F"
-start = "4031 mya"
+start = "4031 млн лет назад"
 
 [era.Paleoarchean]
 color = "#F4449F"
-start = "3600 mya"
+start = "3600 млн лет назад"
 
 [era.Mesoarchean]
 color = "#F768A9"
-start = "3200 mya"
+start = "3200 млн лет назад"
 
 [era.Neoarchean]
 color = "#F99BC1"
-start = "2800 mya"
+start = "2800 млн лет назад"
 
-[eon.Proterozoic]
+[eon."Протерозой"]
 color = "#F73563"
-child = "Paleoproterozoic"
+child = "Палеопротерозой"
 
-[era.Paleoproterozoic]
+[era."Палеопротерозой"]
 color = "#F74370"
 child = "Siderian"
 
 [period.Siderian]
 color = "#F74F7C"
-start = "2500 mya"
+start = "2500 млн лет назад"
 
 [period.Rhyacian]
 color = "#F75B89"
-start = "2300 mya"
+start = "2300 млн лет назад"
 
 [period.Orosirian]
 color = "#F76898"
-start = "2050 mya"
+start = "2050 млн лет назад"
 
 [period.Statherian]
 color = "#F875A7"
-start = "1800 mya"
+start = "1800 млн лет назад"
 
-[era.Mesoproterozoic]
+[era."Мезопротерозой"]
 color = "#FDB462"
 child = "Calymmian"
 
 [period.Calymmian]
 color = "#FDC07A"
-start = "1600 mya"
+start = "1600 млн лет назад"
 
 [period.Ectasian]
 color = "#FDCC8A"
-start = "1400 mya"
+start = "1400 млн лет назад"
 
 [period.Stenian]
 color = "#FED99A"
-start = "1200 mya"
+start = "1200 млн лет назад"
 
-[era.Neoproterozoic]
+[era."Неопротерозой"]
 color = "#FEB342"
-child = "Tonian"
+child = "Тоний"
 
-[period.Tonian]
+[period."Тоний"]
 color = "#FEBF4E"
-start = "1000 mya"
+start = "1000 млн лет назад"
 
 [period.Cryogenian]
 color = "#FECC5C"
-start = "720 mya"
+start = "720 млн лет назад"
 
 [period.Ediacaran]
 color = "#FED96A"
-start = "635 mya"
+start = "635 млн лет назад"
 
-[eon.Phanerozoic]
+[eon."Фанерозой"]
 color = "#9AD9DD"
-child = "Paleozoic"
+child = "Палеозой"
 
-[era.Paleozoic]
+[era."Палеозой"]
 color = "#99C08D"
 child = "Cambrian"
 
@@ -106,11 +106,11 @@ child = "Fortunian"
 
 [age.Fortunian]
 color = "#99B575"
-start = "538.8 mya"
+start = "538.8 млн лет назад"
 
 [age."Stage 2"]
 color = "#A6BA80"
-start = "529 mya"
+start = "529 млн лет назад"
 
 [epoch."Series 2"]
 color = "#99C078"
@@ -118,11 +118,11 @@ child = "Stage 3"
 
 [age."Stage 3"]
 color = "#A6C583"
-start = "521 mya"
+start = "521 млн лет назад"
 
 [age."Stage 4"]
 color = "#B3CA8E"
-start = "514 mya"
+start = "514 млн лет назад"
 
 [epoch.Miaolingian]
 color = "#A6CF86"
@@ -130,15 +130,15 @@ child = "Wuliuan"
 
 [age.Wuliuan]
 color = "#B3D492"
-start = "509 mya"
+start = "509 млн лет назад"
 
 [age.Drumian]
 color = "#BFD99D"
-start = "504.5 mya"
+start = "504.5 млн лет назад"
 
 [age.Guzhangian]
 color = "#CCDFAA"
-start = "500.5 mya"
+start = "500.5 млн лет назад"
 
 [epoch.Furongian]
 color = "#B3E095"
@@ -146,15 +146,15 @@ child = "Paibian"
 
 [age.Paibian]
 color = "#CCEBAE"
-start = "497 mya"
+start = "497 млн лет назад"
 
 [age.Jiangshanian]
 color = "#D9F0BB"
-start = "494 mya"
+start = "494 млн лет назад"
 
 [age."Stage 10"]
 color = "#E6F5C9"
-start = "489.5 mya"
+start = "489.5 млн лет назад"
 
 
 
@@ -168,11 +168,11 @@ child = "Tremadocian"
 
 [age.Tremadocian]
 color = "#33A97E"
-start = "485.4 mya"
+start = "485.4 млн лет назад"
 
 [age.Floian]
 color = "#41B087"
-start = "477.7 mya"
+start = "477.7 млн лет назад"
 
 [epoch."Middle Ordovician"]
 color = "#4DB47E"
@@ -180,11 +180,11 @@ child = "Dapingian"
 
 [age.Dapingian]
 color = "#66C092"
-start = "470.0 mya"
+start = "470.0 млн лет назад"
 
 [age.Darriwilian]
 color = "#74C69C"
-start = "467.3 mya"
+start = "467.3 млн лет назад"
 
 [epoch."Upper Ordovician"]
 color = "#7FCA93"
@@ -192,15 +192,15 @@ child = "Sandbian"
 
 [age.Sandbian]
 color = "#8CD094"
-start = "458.4 mya"
+start = "458.4 млн лет назад"
 
 [age.Katian]
 color = "#99D69F"
-start = "453.0 mya"
+start = "453.0 млн лет назад"
 
 [age.Hirnantian]
 color = "#A6DBAB"
-start = "445.2 mya"
+start = "445.2 млн лет назад"
 
 
 
@@ -214,15 +214,15 @@ child = "Rhuddanian"
 
 [age.Rhuddanian]
 color = "#A6DCB5"
-start = "443.8 mya"
+start = "443.8 млн лет назад"
 
 [age.Aeronian]
 color = "#B3E1C2"
-start = "440.8 mya"
+start = "440.8 млн лет назад"
 
 [age.Telychian]
 color = "#BFE6CF"
-start = "438.5 mya"
+start = "438.5 млн лет назад"
 
 [epoch.Wenlock]
 color = "#B3E1C2"
@@ -230,11 +230,11 @@ child = "Sheinwoodian"
 
 [age.Sheinwoodian]
 color = "#BFE6C3"
-start = "433.4 mya"
+start = "433.4 млн лет назад"
 
 [age.Homerian]
 color = "#CCEBD1"
-start = "430.5 mya"
+start = "430.5 млн лет назад"
 
 [epoch.Ludlow]
 color = "#BFE6CF"
@@ -242,15 +242,15 @@ child = "Gorstian"
 
 [age.Gorstian]
 color = "#CCECDD"
-start = "427.4 mya"
+start = "427.4 млн лет назад"
 
 [age.Ludfordian]
 color = "#D9F0DF"
-start = "425.6 mya"
+start = "425.6 млн лет назад"
 
 [epoch.Pridoli]
 color = "#E6F5E1"
-start = "423.0 mya"
+start = "423.0 млн лет назад"
 
 
 
@@ -264,15 +264,15 @@ child = "Lochkovian"
 
 [age.Lochkovian]
 color = "#E5B75A"
-start = "419.2 mya"
+start = "419.2 млн лет назад"
 
 [age.Pragian]
 color = "#E5C468"
-start = "410.8 mya"
+start = "410.8 млн лет назад"
 
 [age.Emsian]
 color = "#E5D075"
-start = "407.6 mya"
+start = "407.6 млн лет назад"
 
 [epoch."Middle Devonian"]
 color = "#F1C868"
@@ -280,11 +280,11 @@ child = "Eifelian"
 
 [age.Eifelian]
 color = "#F1D576"
-start = "393.3 mya"
+start = "393.3 млн лет назад"
 
 [age.Givetian]
 color = "#F1E185"
-start = "387.7 mya"
+start = "387.7 млн лет назад"
 
 [epoch."Upper Devonian"]
 color = "#F1E19D"
@@ -292,11 +292,11 @@ child = "Frasnian"
 
 [age.Frasnian]
 color = "#F2EDAD"
-start = "382.7 mya"
+start = "382.7 млн лет назад"
 
 [age.Famennian]
 color = "#F2EDB3"
-start = "372.2 mya"
+start = "372.2 млн лет назад"
 
 
 
@@ -312,7 +312,7 @@ child = "Tournaisian"
 
 [age.Tournaisian]
 color = "#8CB06C"
-start = "358.9 mya"
+start = "358.9 млн лет назад"
 
 [epoch."Middle Mississippian"]
 color = "#99B46C"
@@ -320,7 +320,7 @@ child = "Visean"
 
 [age.Visean]
 color = "#A6B96C"
-start = "346.7 mya"
+start = "346.7 млн лет назад"
 
 [epoch."Upper Mississippian"]
 color = "#B3BE6C"
@@ -328,7 +328,7 @@ child = "Serpukhovian"
 
 [age.Serpukhovian]
 color = "#BFC26B"
-start = "330.9 mya"
+start = "330.9 млн лет назад"
 
 # Pennsylvanian - #7EBCC6
 
@@ -338,7 +338,7 @@ child = "Bashkirian"
 
 [age.Bashkirian]
 color = "#99C2B5"
-start = "323.2 mya"
+start = "323.2 млн лет назад"
 
 [epoch."Middle Pennsylvanian"]
 color = "#A6C7B7"
@@ -346,7 +346,7 @@ child = "Moscovian"
 
 [age.Moscovian]
 color = "#B3CBB9"
-start = "315.2 mya"
+start = "315.2 млн лет назад"
 
 [epoch."Upper Pennsylvanian"]
 color = "#BFD0BA"
@@ -354,11 +354,11 @@ child = "Kasimovian"
 
 [age.Kasimovian]
 color = "#BFD0C5"
-start = "307.0 mya"
+start = "307.0 млн лет назад"
 
 [age.Gzhelian]
 color = "#CCD4C7"
-start = "303.7 mya"
+start = "303.7 млн лет назад"
 
 
 
@@ -372,19 +372,19 @@ child = "Asselian"
 
 [age.Asselian]
 color = "#E36350"
-start = "298.9 mya"
+start = "298.9 млн лет назад"
 
 [age.Sakmarian]
 color = "#E36F5C"
-start = "293.52 mya"
+start = "293.52 млн лет назад"
 
 [age.Artinskian]
 color = "#E37B68"
-start = "290.1 mya"
+start = "290.1 млн лет назад"
 
 [age.Kungurian]
 color = "#E38776"
-start = "283.5 mya"
+start = "283.5 млн лет назад"
 
 [epoch.Guadalupian]
 color = "#FB745C"
@@ -392,15 +392,15 @@ child = "Roadian"
 
 [age.Roadian]
 color = "#FB8069"
-start = "273.01 mya"
+start = "273.01 млн лет назад"
 
 [age.Wordian]
 color = "#FB8D76"
-start = "266.9 mya"
+start = "266.9 млн лет назад"
 
 [age.Capitanian]
 color = "#FB9A85"
-start = "264.28 mya"
+start = "264.28 млн лет назад"
 
 [epoch.Lopingian]
 color = "#FBA794"
@@ -408,19 +408,19 @@ child = "Wuchiapingian"
 
 [age.Wuchiapingian]
 color = "#FCB4A2"
-start = "259.51 mya"
+start = "259.51 млн лет назад"
 
 [age.Changhsingian]
 color = "#FCC0B2"
-start = "254.14 mya"
+start = "254.14 млн лет назад"
 
 
 
-[era.Mesozoic]
+[era."Мезозой"]
 color = "#67C5CA"
-child = "Triassic"
+child = "Триас"
 
-[period.Triassic]
+[period."Триас"]
 color = "#812B92"
 child = "Lower Triassic"
 
@@ -430,11 +430,11 @@ child = "Induan"
 
 [age.Induan]
 color = "#A4469F"
-start = "251.902 mya"
+start = "251.902 млн лет назад"
 
 [age.Olenekian]
 color = "#B051A5"
-start = "251.2 mya"
+start = "251.2 млн лет назад"
 
 [epoch."Middle Triassic"]
 color = "#B168B1"
@@ -442,11 +442,11 @@ child = "Anisian"
 
 [age.Anisian]
 color = "#BC75B7"
-start = "247.2 mya"
+start = "247.2 млн лет назад"
 
 [age.Ladinian]
 color = "#C983BF"
-start = "242 mya"
+start = "242 млн лет назад"
 
 [epoch."Upper Triassic"]
 color = "#BD8CC3"
@@ -454,20 +454,20 @@ child = "Carnian"
 
 [age.Carnian]
 color = "#C99BCB"
-start = "237 mya"
+start = "237 млн лет назад"
 
 [age.Norian]
 color = "#D6AAD3"
-start = "227 mya"
+start = "227 млн лет назад"
 
 [age.Rhaetian]
 color = "#E3B9DB"
-start = "208.5 mya"
+start = "208.5 млн лет назад"
 
 
 
 
-[period.Jurassic]
+[period."Юра"]
 color = "#34B2C9"
 child = "Lower Jurassic"
 
@@ -477,19 +477,19 @@ child = "Hettangian"
 
 [age.Hettangian]
 color = "#4EB3D3"
-start = "201.4 mya"
+start = "201.4 млн лет назад"
 
 [age.Sinemurian]
 color = "#67BCD8"
-start = "199.5 mya"
+start = "199.5 млн лет назад"
 
 [age.Pliensbachian]
 color = "#80C5DD"
-start = "192.9 mya"
+start = "192.9 млн лет назад"
 
 [age.Toarcian]
 color = "#99CEE3"
-start = "184.2 mya"
+start = "184.2 млн лет назад"
 
 [epoch."Middle Jurassic"]
 color = "#80CFD8"
@@ -497,19 +497,19 @@ child = "Aalenian"
 
 [age.Aalenian]
 color = "#9AD9DD"
-start = "174.7 mya"
+start = "174.7 млн лет назад"
 
 [age.Bajocian]
 color = "#A6DDE0"
-start = "170.9 mya"
+start = "170.9 млн лет назад"
 
 [age.Bathonian]
 color = "#B3E2E3"
-start = "168.2 mya"
+start = "168.2 млн лет назад"
 
 [age.Callovian]
 color = "#BFE7E5"
-start = "165.3 mya"
+start = "165.3 млн лет назад"
 
 [epoch."Upper Jurassic"]
 color = "#B3E3EE"
@@ -517,85 +517,85 @@ child = "Oxfordian"
 
 [age.Oxfordian]
 color = "#BFE7F1"
-start = "161.5 mya"
+start = "161.5 млн лет назад"
 
 [age.Kimmeridgian]
 color = "#CCECF4"
-start = "154.8 mya"
+start = "154.8 млн лет назад"
 
 [age.Tithonian]
 color = "#D9F1F7"
-start = "149.2 mya"
+start = "149.2 млн лет назад"
 
 
 
-[period.Cretaceous]
+[period."Мел"]
 color = "#7FC64E"
-child = "Lower Cretaceous"
+child = "Нижний Мел"
 
-[epoch."Lower Cretaceous"]
+[epoch."Нижний Мел"]
 color = "#8CCD57"
 child = "Berriasian"
 
 [age.Berriasian]
 color = "#8CCD60"
-start = "145.0 mya"
+start = "145.0 млн лет назад"
 
 [age.Valanginian]
 color = "#99D36A"
-start = "139.8 mya"
+start = "139.8 млн лет назад"
 
 [age.Hauterivian]
 color = "#A6D975"
-start = "132.6 mya"
+start = "132.6 млн лет назад"
 
 [age.Barremian]
 color = "#B3DF7F"
-start = "125.77 mya"
+start = "125.77 млн лет назад"
 
 [age.Aptian]
 color = "#BFE48A"
-start = "121.4 mya"
+start = "121.4 млн лет назад"
 
 [age.Albian]
 color = "#CCEA97"
-start = "113.0 mya"
+start = "113.0 млн лет назад"
 
-[epoch."Upper Cretaceous"]
+[epoch."Верхний Мел"]
 color = "#A6D84A"
 child = "Cenomanian"
 
 [age.Cenomanian]
 color = "#B3DE53"
-start = "100.5 mya"
+start = "100.5 млн лет назад"
 
 [age.Turonian]
 color = "#BFE35D"
-start = "93.9 mya"
+start = "93.9 млн лет назад"
 
 [age.Coniacian]
 color = "#CCE968"
-start = "89.8 mya"
+start = "89.8 млн лет назад"
 
 [age.Santonian]
 color = "#D9EF74"
-start = "86.3 mya"
+start = "86.3 млн лет назад"
 
 [age.Campanian]
 color = "#E6F47F"
-start = "83.6 mya"
+start = "83.6 млн лет назад"
 
 [age.Maastrichtian]
 color = "#F2FA8C"
-start = "72.1 mya"
+start = "72.1 млн лет назад"
 
 
 
-[era.Cenozoic]
+[era."Кайнозой"]
 color = "#F2F91D"
-child = "Paleogene"
+child = "Палеоген"
 
-[period.Paleogene]
+[period."Палеоген"]
 color = "#FD9A52"
 child = "Paleocene"
 
@@ -605,55 +605,55 @@ child = "Danian"
 
 [age.Danian]
 color = "#FDB462"
-start = "66.0 mya"
+start = "66.0 млн лет назад"
 
 [age.Selandian]
 color = "#FEBF65"
-start = "61.6 mya"
+start = "61.6 млн лет назад"
 
 [age.Thanetian]
 color = "#FDBF6F"
-start = "59.2 mya"
+start = "59.2 млн лет назад"
 
-[epoch.Eocene]
+[epoch."Эоцен"]
 color = "#FDB46C"
 child = "Ypresian"
 
 [age.Ypresian]
 color = "#FCA773"
-start = "56.0 mya"
+start = "56.0 млн лет назад"
 
 [age.Lutetian]
 color = "#FDB482"
-start = "47.8 mya"
+start = "47.8 млн лет назад"
 
 [age.Bartonian]
 color = "#FDC091"
-start = "41.2 mya"
+start = "41.2 млн лет назад"
 
 [age.Priabonian]
 color = "#FDCDA1"
-start = "37.71 mya"
+start = "37.71 млн лет назад"
 
-[epoch.Oligocene]
+[epoch."Олигоцен"]
 color = "#FEC07A"
 child = "Rupelian"
 
 [age.Rupelian]
 color = "#FED99A"
-start = "33.9 mya"
+start = "33.9 млн лет назад"
 
 [age.Chattian]
 color = "#FEE6AA"
-start = "27.82 mya"
+start = "27.82 млн лет назад"
 
 
 
-[period.Neogene]
+[period."Неоген"]
 color = "#FFE619"
-child = "Miocene"
+child = "Миоцен"
 
-[epoch.Miocene]
+[epoch."Миоцен"]
 color = "#FFFF00"
 child = "Aquitanian"
 
@@ -661,92 +661,92 @@ child = "Aquitanian"
 
 [age.Aquitanian]
 color = "#FFFF33"
-start = "23.03 mya"
+start = "23.03 млн лет назад"
 
-[age.Burdigalian]
+[age."Бурдигальский"]
 color = "#FFFF41"
-start = "20.44 mya"
+start = "20.44 млн лет назад"
 
 # Middle Miocene Subseries - #FFEC73
 
 [age.Langhian]
 color = "#FFFF4D"
-start = "15.98 mya"
+start = "15.98 млн лет назад"
 
 [age.Serravallian]
 color = "#FFFF59"
-start = "13.82 mya"
+start = "13.82 млн лет назад"
 
 # Upper/Late Miocene Subseries - #FFEC8C
 
-[age.Tortonian]
+[age."Тортонский"]
 color = "#FFFF66"
-start = "11.63 mya"
+start = "11.63 млн лет назад"
 
-[age.Messinian]
+[age."Мессинский"]
 color = "#FFFF73"
-start = "7.246 mya"
+start = "7.246 млн лет назад"
 
-[epoch.Pliocene]
+[epoch."Плиоцен"]
 color = "#FFFF99"
-child = "Zanclean"
+child = "Занклский"
 
 # Lower/Early Pliocene Subseries - #FFF2C3
 
-[age.Zanclean]
+[age."Занклский"]
 color = "#FFFFB3"
-start = "5.333 mya"
+start = "5.333 млн лет назад"
 
 # Upper/Late Pliocene Subseries - #FFF2CD
 
-[age.Piacenzian]
+[age."Пьяченцский"]
 color = "#FFFFBF"
-start = "3.600 mya"
+start = "3.600 млн лет назад"
 
 
 
-[period.Quaternary]
+[period."Четвертичный"]
 color = "#F9F97F"
-child = "Pleistocene"
+child = "Плейстоцен"
 
-[epoch.Pleistocene]
+[epoch."Плейстоцен"]
 color = "#FFEFAF"
-child = "Gelasian"
+child = "Гелазский"
 
 # Lower/Early Pleistocene Subseries - #FFF0B9
 
-[age.Gelasian]
+[age."Гелазский"]
 color = "#FFEDB3"
-start = "2.58 mya"
+start = "2.58 млн лет назад"
 
-[age.Calabrian]
+[age."Калабрийский"]
 color = "#FFF2BA"
-start = "1.80 mya"
+start = "1.80 млн лет назад"
 
 # Middle Pleistocene Subseries - #FFF2C7
 
-[age.Chibanian]
+[age."Тибанийский"]
 color = "#FFF2C7"
-start = "0.774 mya"
+start = "0.774 млн лет назад"
 
 # Upper/Late Pleistocene Subseries - #FFF2D3
 
-[age."Upper Pleistocene"]
+[age."Верхний плейстоцен"]
 color = "#FFF2D3"
-start = "0.129 mya"
+start = "0.129 млн лет назад"
 
-[epoch.Holocene]
+[epoch."Голоцен"]
 color = "#FEEBD2"
-child = "Greenlandian"
+child = "Гренландский"
 
-[age.Greenlandian]
+[age."Гренландский"]
 color = "#FEECDB"
-start = "0.0117 mya"
+start = "0.0117 млн лет назад"
 
-[age.Northgrippian]
+[age."Северогриппианский"]
 color = "#FDECE4"
-start = "0.0082 mya"
+start = "0.0082 млн лет назад"
 
-[age.Meghalayan]
+[age."Мегхалайский"]
 color = "#FDEDEC"
-start = "0.0042 mya"
+start = "0.0042 млн лет назад"
