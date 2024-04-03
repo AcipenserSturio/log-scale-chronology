@@ -8,7 +8,8 @@ from .date import Date
 from .stratigraphy import Tree
 from .config import (
     FONT, WIDTH, HEIGHT,
-    BACKGROUND_COLOR, COLOR, SEMI_TRANSPARENT,
+    BACKGROUND_COLOR, COLOR,
+    SEMI_TRANSPARENT, SEMI_TRANSPARENT_COLORED,
     YEAR_TACKS,
 )
 YEAR_TACKS = list(map(Date, YEAR_TACKS))
@@ -69,6 +70,22 @@ def draw_csv(im: Image,
                 fill=SEMI_TRANSPARENT,
             )
             prev_date, prev_temp = date, temp
+    im.alpha_composite(im_over)
+
+def draw_temp_scale(im: Image,
+                    offset: int,
+                    ) -> Image:
+
+    im_over = Image.new("RGBA", (WIDTH, HEIGHT), (0, 0, 0, 0))
+    draw = ImageDraw.Draw(im_over)
+
+    for temp in range(-10, 24):
+        draw.line(
+            ((offset + temp * MAGNIFIER, Date("120 mya").y),
+             (offset + temp * MAGNIFIER, HEIGHT)),
+            fill=(SEMI_TRANSPARENT_COLORED
+                  if temp % 5 else SEMI_TRANSPARENT),
+        )
     im.alpha_composite(im_over)
 
 
@@ -158,6 +175,7 @@ def plot():
         1000
     )
 
+    draw_temp_scale(im, 1200)
     for filepath in Path("assets/paleotemps").glob("*.csv"):
         draw_csv(im, 1200, filepath)
 
