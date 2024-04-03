@@ -6,6 +6,9 @@ from dataclasses import dataclass, field
 from PIL import ImageDraw
 
 from .date import Date
+from .config import (
+    COLOR, FONT,
+)
 
 IDS_TO_LEVELS = [
     "eon",
@@ -15,6 +18,7 @@ IDS_TO_LEVELS = [
     "age",
 ]
 LEVELS_TO_IDS = {k: v for v, k in enumerate(IDS_TO_LEVELS)}
+BLOCK_SIZE = 200
 
 
 class Tree:
@@ -29,6 +33,7 @@ class Tree:
                     _color = span_details["color"],
                     _start = Date(span_details["start"]) if "start" in span_details else None,
                     _child = span_details["child"] if "child" in span_details else None,
+                    _text_color = span_details["text_color"] if "text_color" in span_details else None,
                 ))
 
     def get(self, level: str, span_name: Span) -> Span:
@@ -72,6 +77,7 @@ class Span:
     _color: str
     _start: Date | None
     _child: str | None
+    _text_color: str | None
 
     def next_span(self) -> Span | None:
         return self.tree.next_span(self)
@@ -98,3 +104,30 @@ class Span:
     @property
     def color(self) -> Tuple[int, int, int]:
         return tuple(bytes.fromhex(self._color[1:]))
+
+    @property
+    def text_color(self) -> Tuple[int, int, int]:
+        if self._text_color:
+            return tuple(bytes.fromhex(self._text_color[1:]))
+        return COLOR
+
+    def rectangle(self, draw: ImageDraw):
+        y1, y2 = self.start.y, self.end.y
+        y_mid = (y1 + y2) / 2
+        x1 = LEVELS_TO_IDS[self.level] * BLOCK_SIZE
+        x2 = x1 + BLOCK_SIZE
+        if not self._child:
+            x2 = BLOCK_SIZE*5
+
+        draw.rectangle(
+            ((x1, y1), (x2, y2)),
+            fill=self.color,
+        )
+        if y2 - y1 > 15:
+            draw.text(
+                (10 + x1, y_mid),
+                self.name,
+                fill=self.text_color,
+                font=FONT,
+                anchor="lm",
+            )

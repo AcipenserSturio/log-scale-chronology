@@ -28,15 +28,6 @@ def draw_tack(draw: ImageDraw.Draw, text: str, y: int, x_offset: int = 0):
         anchor="lm",
     )
 
-def draw_text(draw: ImageDraw.Draw, text: str, x: int, y: int):
-    draw.text(
-        (x, y),
-        text,
-        fill=COLOR,
-        font=FONT,
-        anchor="lm",
-    )
-
 def draw_tacks(draw: ImageDraw.Draw,
                tacks: list[tuple[Date, str]],
                x_offset: int):
@@ -102,78 +93,23 @@ def plot():
 
     print("Drawing eons")
     for span in strat.eons:
-        draw.rectangle(
-            ((0, span.start.y),
-            (200, span.end.y)),
-            fill=span.color,
-        )
-        if span.end.y - span.start.y > 15:
-            draw_text(
-                draw,
-                span.name,
-                10,
-                (span.start.y + span.end.y) / 2,
-            )
+        span.rectangle(draw)
 
     print("Drawing eras")
     for span in strat.eras:
-        draw.rectangle(
-            ((200, span.start.y),
-            (400, span.end.y)),
-            fill=span.color,
-        )
-        if span.end.y - span.start.y > 15:
-            draw_text(
-                draw,
-                span.name,
-                210,
-                (span.start.y + span.end.y) / 2,
-            )
+        span.rectangle(draw)
 
     print("Drawing periods")
     for span in strat.periods:
-        draw.rectangle(
-            ((400, span.start.y),
-            (600, span.end.y)),
-            fill=span.color,
-        )
-        if span.end.y - span.start.y > 15:
-            draw_text(
-                draw,
-                span.name,
-                410,
-                (span.start.y + span.end.y) / 2,
-            )
+        span.rectangle(draw)
 
     print("Drawing epochs")
     for span in strat.epochs:
-        draw.rectangle(
-            ((600, span.start.y),
-            (800, span.end.y)),
-            fill=span.color,
-        )
-        if span.end.y - span.start.y > 15:
-            draw_text(
-                draw,
-                span.name,
-                610,
-                (span.start.y + span.end.y) / 2,
-            )
+        span.rectangle(draw)
 
     print("Drawing ages")
     for span in strat.ages:
-        draw.rectangle(
-            ((800, span.start.y),
-            (1000, span.end.y)),
-            fill=span.color,
-        )
-        if span.end.y - span.start.y > 15:
-            draw_text(
-                draw,
-                span.name,
-                810,
-                (span.start.y + span.end.y) / 2,
-            )
+        span.rectangle(draw)
 
     print("Drawing time scale tacks")
     draw_tacks(

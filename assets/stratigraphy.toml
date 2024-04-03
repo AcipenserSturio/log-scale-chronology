@@ -1,6 +1,11 @@
 # Source: https://stratigraphy.org/chart
 # Version: https://stratigraphy.org/ICSchart/ChronostratChart2023-09.pdf
 
+[eon."Early universe"] # Not a real eon; I wanted to fill in the gap
+color = "#131313"
+start = "13.787 bya"
+text_color = "#eeeeee"
+
 [eon.Hadean]
 color = "#AE027E"
 start = "4567 mya"
