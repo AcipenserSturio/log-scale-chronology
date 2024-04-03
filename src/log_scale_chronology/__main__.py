@@ -125,7 +125,11 @@ def plot():
         draw_csv(im, 1200, filepath)
 
     print("Loading events")
-    with open("assets/events.toml", "rb") as f:
+    events_path = (
+        "assets/events-short.toml"
+        if HEIGHT < 4000 else "assets/events_short.toml"
+    )
+    with open(events_path, "rb") as f:
         events = tomli.load(f)
 
     print("Drawing events")

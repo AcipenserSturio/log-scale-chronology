@@ -76,3 +76,5 @@ class Date:
         one year ago = HEIGHT.
         """
         return round(self.percentile * HEIGHT)
+        # Non logarithmic option:
+        # return round((1 - self.value / BIG_BANG) * HEIGHT)
