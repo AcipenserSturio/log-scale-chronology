@@ -79,7 +79,7 @@ def draw_temp_scale(im: Image,
     im_over = Image.new("RGBA", (WIDTH, HEIGHT), (0, 0, 0, 0))
     draw = ImageDraw.Draw(im_over)
 
-    for temp in range(-10, 24):
+    for temp in range(-10, 25):
         draw.line(
             ((offset + temp * MAGNIFIER, Date("120 mya").y),
              (offset + temp * MAGNIFIER, HEIGHT)),
@@ -96,9 +96,11 @@ def plot():
     # draw.rectangle((200, 100, 300, 200), fill=(0, 192, 192), outline=(255, 255, 255))
     # draw_node(im, draw, 0, 0)
 
+    print("Loading stratigraphic data")
     with open("assets/stratigraphy.toml", "rb") as f:
         strat = Tree(tomli.load(f))
 
+    print("Drawing eons")
     for span in strat.eons:
         draw.rectangle(
             ((0, span.start.y),
@@ -113,6 +115,7 @@ def plot():
                 (span.start.y + span.end.y) / 2,
             )
 
+    print("Drawing eras")
     for span in strat.eras:
         draw.rectangle(
             ((200, span.start.y),
@@ -127,6 +130,7 @@ def plot():
                 (span.start.y + span.end.y) / 2,
             )
 
+    print("Drawing periods")
     for span in strat.periods:
         draw.rectangle(
             ((400, span.start.y),
@@ -141,6 +145,7 @@ def plot():
                 (span.start.y + span.end.y) / 2,
             )
 
+    print("Drawing epochs")
     for span in strat.epochs:
         draw.rectangle(
             ((600, span.start.y),
@@ -155,6 +160,7 @@ def plot():
                 (span.start.y + span.end.y) / 2,
             )
 
+    print("Drawing ages")
     for span in strat.ages:
         draw.rectangle(
             ((800, span.start.y),
@@ -169,26 +175,34 @@ def plot():
                 (span.start.y + span.end.y) / 2,
             )
 
+    print("Drawing time scale tacks")
     draw_tacks(
         draw,
         [(date, date.string) for date in YEAR_TACKS],
         1000
     )
 
+    print("Drawing temperature scale")
     draw_temp_scale(im, 1200)
     for filepath in Path("assets/paleotemps").glob("*.csv"):
+        print(f"Drawing {filepath.stem}")
         draw_csv(im, 1200, filepath)
 
+    print("Loading events")
     with open("assets/events.toml", "rb") as f:
         events = tomli.load(f)
 
+    print("Drawing events")
     draw_tacks(
         draw,
         [(Date(date), desc) for date, desc in events.items()],
         1450
     )
 
+    print("Saving image")
     im.save("out.png")
+
+    print("Exiting")
 
 
 if __name__ == "__main__":
