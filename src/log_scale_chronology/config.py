@@ -4,7 +4,7 @@ from PIL import ImageFont
 FONTSIZE = 20
 FONT = ImageFont.truetype("/usr/share/fonts/noto/NotoSerif-Bold.ttf", FONTSIZE)
 
-WIDTH, HEIGHT = 3300, 7000
+WIDTH, HEIGHT = 3500, 7000
 BACKGROUND_COLOR = (255, 255, 255, 255)
 COLOR = (0, 0, 0, 255)
 SEMI_TRANSPARENT = (0, 0, 0, 100)

@@ -18,7 +18,8 @@ class Taxonomy:
             for taxon, mya in data:
                 self.add_taxon(taxon, Date(f"{mya} mya"), prev_taxon)
                 prev_taxon, prev_mya = taxon, mya
-            self.add_taxon(colloq, Date(f"0.8 mya"), prev_taxon)
+            self.rename_taxon(taxon, colloq)
+            # self.add_taxon(colloq, Date(f"0.8 mya"), prev_taxon)
 
     def add_taxon(self, name: str, date: Date, parent: str | None):
         if name in self.taxa:
@@ -28,6 +29,11 @@ class Taxonomy:
         if parent:
             self.taxa[parent].children.append(taxon)
 
+    def rename_taxon(self, old_name: str, new_name: str):
+        taxon = self.taxa[old_name]
+        del self.taxa[old_name]
+        taxon.name = new_name
+        self.taxa[new_name] = taxon
 
 @dataclass
 class Taxon:

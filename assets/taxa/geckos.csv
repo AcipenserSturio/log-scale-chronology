@@ -1,4 +1,4 @@
-"Ray-finned fish",mya
+Geckos,mya
 cellular_organisms,4250
 Eukaryota,1598
 Opisthokonta,1275
@@ -9,4 +9,12 @@ Chordata,588
 Vertebrata,563
 Gnathostomata,462
 Euteleostomi,429
-Actinopterygii,396
+Sarcopterygii,415
+Dipnotetrapodomorpha,408
+Tetrapoda,352
+Amniota,319
+Sauria,280
+Lepidosauria,244
+Squamata,189
+Bifurcata,189
+Gekkota,112

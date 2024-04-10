@@ -82,7 +82,7 @@ def draw_temp_scale(im: Image,
 
 
 
-MIN_BLOCK = 40
+MIN_BLOCK = 20
 def draw_taxon(im: Image,
                draw: ImageDraw.Draw,
                taxon: Taxon,
@@ -90,18 +90,30 @@ def draw_taxon(im: Image,
 
     # print(taxon.date, offset, taxon.size, taxon.name, sep="\t")
     taxon_mid = (offset + MIN_BLOCK * taxon.size // 2)
-    if taxon.branches:
-        draw_tack(
-            draw,
-            taxon.name,
-            taxon.date.y,
-            x_offset = taxon_mid,
-        )
+    if taxon.children:
+        if len(taxon.children) > 1:
+            draw.text(
+                (taxon_mid + 3, taxon.date.y - 10),
+                taxon.name,
+                fill=COLOR,
+                font=FONT,
+                anchor="lm",
+            )
+        else:
+            draw.line(
+                ((taxon_mid - 2, taxon.date.y), (taxon_mid + 2, taxon.date.y)),
+                fill=COLOR,
+            )
         for child in taxon.branches:
             # draw child
             child_mid = offset + MIN_BLOCK * child.size // 2
             draw.line(
                 ((taxon_mid, taxon.date.y),
+                (child_mid, taxon.date.y)),
+                fill=COLOR,
+            )
+            draw.line(
+                ((child_mid, taxon.date.y),
                 (child_mid, child.date.y)),
                 fill=COLOR,
             )
@@ -109,6 +121,7 @@ def draw_taxon(im: Image,
             offset += child.size * MIN_BLOCK
     else:
         draw_leaf_text(im, draw, taxon.name, taxon_mid, taxon.date.y)
+        # draw_tack(draw, taxon.name, taxon.date.y, taxon_mid)
 
 
 def textbox_size(message: str) -> tuple[int, int]:
@@ -195,7 +208,7 @@ def plot():
     taxonomy = Taxonomy()
     for filepath in Path("assets/taxa").glob("*.csv"):
         taxonomy.register(filepath)
-    draw_taxon(im, draw, taxonomy.taxa["cellular_organisms"], 1500)
+    draw_taxon(im, draw, taxonomy.taxa["cellular_organisms"], 1450)
 
     print("Loading events")
     events_path = (
@@ -209,7 +222,7 @@ def plot():
     draw_tacks(
         draw,
         [(Date(date), desc) for date, desc in events.items()],
-        2400
+        2650
     )
 
     print("Saving image")

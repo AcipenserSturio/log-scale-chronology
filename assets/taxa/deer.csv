@@ -1,4 +1,4 @@
-"Passerine birds",mya
+Deer,mya
 cellular_organisms,4250
 Eukaryota,1598
 Opisthokonta,1275
@@ -13,9 +13,14 @@ Sarcopterygii,415
 Dipnotetrapodomorpha,408
 Tetrapoda,352
 Amniota,319
-Sauria,280
-Archelosauria,261
-Archosauria,245
-Aves,108
-Neognathae,91
-Passeriformes,40
+Mammalia,180
+Theria,160
+Eutheria,99
+Boreoeutheria,94
+Laurasiatheria,86
+Artiodactyla,64
+Ruminantia,45
+Pecora,27
+Cervidae,13
+Cervinae,8
+Cervus,3
