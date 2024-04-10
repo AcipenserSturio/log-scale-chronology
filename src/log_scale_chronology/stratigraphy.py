@@ -1,13 +1,13 @@
 from __future__ import annotations
 
 from collections import defaultdict
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 
 from PIL import ImageDraw
 
 from .date import Date
 from .config import (
-    COLOR, FONT,
+    COLOR, FONT, WIDTH,
 )
 
 IDS_TO_LEVELS = [
@@ -117,7 +117,8 @@ class Span:
         x1 = LEVELS_TO_IDS[self.level] * BLOCK_SIZE
         x2 = x1 + BLOCK_SIZE
         if not self._child:
-            x2 = BLOCK_SIZE*5
+            # x2 = BLOCK_SIZE*5
+            x2 = WIDTH
 
         draw.rectangle(
             ((x1, y1), (x2, y2)),

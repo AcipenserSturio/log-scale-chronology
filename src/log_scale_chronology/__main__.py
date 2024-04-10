@@ -6,6 +6,7 @@ import tomli
 
 from .date import Date
 from .stratigraphy import Tree
+from .taxonomy import Taxonomy, Taxon
 from .config import (
     FONT, WIDTH, HEIGHT,
     BACKGROUND_COLOR, COLOR,
@@ -80,6 +81,69 @@ def draw_temp_scale(im: Image,
     im.alpha_composite(im_over)
 
 
+
+MIN_BLOCK = 40
+def draw_taxon(im: Image,
+               draw: ImageDraw.Draw,
+               taxon: Taxon,
+               offset: int):
+
+    # print(taxon.date, offset, taxon.size, taxon.name, sep="\t")
+    taxon_mid = (offset + MIN_BLOCK * taxon.size // 2)
+    if taxon.branches:
+        draw_tack(
+            draw,
+            taxon.name,
+            taxon.date.y,
+            x_offset = taxon_mid,
+        )
+        for child in taxon.branches:
+            # draw child
+            child_mid = offset + MIN_BLOCK * child.size // 2
+            draw.line(
+                ((taxon_mid, taxon.date.y),
+                (child_mid, child.date.y)),
+                fill=COLOR,
+            )
+            draw_taxon(im, draw, child, offset)
+            offset += child.size * MIN_BLOCK
+    else:
+        draw_leaf_text(im, draw, taxon.name, taxon_mid, taxon.date.y)
+
+
+def textbox_size(message: str) -> tuple[int, int]:
+    draw = ImageDraw.Draw(Image.new("RGBA", (0, 0), (0, 0, 0, 0)))
+    _, _, width, height = draw.textbbox(
+        (0, 0),
+        message,
+        font=FONT,
+    )
+    return width, height
+
+
+def draw_leaf_text(im: Image,
+                   draw: ImageDraw.Draw,
+                   message: str,
+                   # offset: tuple[int, int],
+                   # size: tuple[int, int]):
+                   x: int,
+                   y: int):
+    # offset_x, offset_y = offset
+    # size_x, size_y = size
+    width, height = textbox_size(message)
+
+    img_text = Image.new("RGBA", (width, height), (0, 0, 0, 0))
+    draw_text = ImageDraw.Draw(img_text)
+    draw_text.text(
+        (0, 0),
+        text=message,
+        fill=COLOR,
+        font=FONT,
+    )
+    img_text = img_text.rotate(-90, expand=True)
+    im.alpha_composite(img_text, (x - height // 2, y + 10))
+
+
 def plot():
     im = Image.new("RGBA", (WIDTH, HEIGHT), BACKGROUND_COLOR)
     draw = ImageDraw.Draw(im)
@@ -111,6 +175,9 @@ def plot():
     for span in strat.ages:
         span.rectangle(draw)
 
+    overlay = Image.new("RGBA", (WIDTH - 1000, HEIGHT), (255, 255, 255, 200))
+    im.alpha_composite(overlay, (1000, 0))
+
     print("Drawing time scale tacks")
     draw_tacks(
         draw,
@@ -124,6 +191,12 @@ def plot():
         print(f"Drawing {filepath.stem}")
         draw_csv(im, 1200, filepath)
 
+    print("Drawing taxonomy")
+    taxonomy = Taxonomy()
+    for filepath in Path("assets/taxa").glob("*.csv"):
+        taxonomy.register(filepath)
+    draw_taxon(im, draw, taxonomy.taxa["cellular_organisms"], 1500)
+
     print("Loading events")
     events_path = (
         "assets/events-short.toml"
@@ -136,7 +209,7 @@ def plot():
     draw_tacks(
         draw,
         [(Date(date), desc) for date, desc in events.items()],
-        1450
+        2400
     )
 
     print("Saving image")

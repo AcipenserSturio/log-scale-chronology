@@ -59,6 +59,9 @@ class Date:
 
         self.value = number
 
+    def __str__(self):
+        return f"Date({self.string})"
+
     @property
     def percentile(self) -> float:
         """
