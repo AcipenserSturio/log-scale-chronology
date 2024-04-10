@@ -127,7 +127,7 @@ def plot():
     print("Loading events")
     events_path = (
         "assets/events-short.toml"
-        if HEIGHT < 4000 else "assets/events_short.toml"
+        if HEIGHT < 4000 else "assets/events.toml"
     )
     with open(events_path, "rb") as f:
         events = tomli.load(f)
