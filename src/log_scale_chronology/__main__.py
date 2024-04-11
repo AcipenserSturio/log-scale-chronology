@@ -81,15 +81,15 @@ def draw_temp_scale(im: Image,
     im.alpha_composite(im_over)
 
 
-CHILD_EXTEND = 100
-MIN_BLOCK = 25
+CHILD_EXTEND = 10
+MIN_BLOCK = 20
+TAXONOMY_OFFSET = 1450
 def draw_taxon(im: Image,
                draw: ImageDraw.Draw,
                taxon: Taxon,
                offset: int):
 
-    # print(taxon.date, offset, taxon.size, taxon.name, sep="\t")
-    taxon_mid = (offset + MIN_BLOCK * taxon.size // 2)
+    taxon_mid = TAXONOMY_OFFSET + round(taxon.x * MIN_BLOCK)
     if taxon.children:
         if len(taxon.children) > 1:
             draw_branch_text(im, draw, taxon.name, taxon_mid, taxon.date.y)
@@ -100,7 +100,7 @@ def draw_taxon(im: Image,
             )
         for child in taxon.branches:
             # draw child
-            child_mid = offset + MIN_BLOCK * child.size // 2
+            child_mid = TAXONOMY_OFFSET + round(child.x * MIN_BLOCK)
 
             if child.size == 1:
                 draw.line(
@@ -240,7 +240,8 @@ def plot():
     taxonomy = Taxonomy()
     for filepath in Path("assets/taxa").glob("*.csv"):
         taxonomy.register(filepath)
-    draw_taxon(im, draw, taxonomy.taxa["cellular_organisms"], 1450)
+    taxonomy.root.set_leaf_x(0)
+    draw_taxon(im, draw, taxonomy.root, 1450)
     #
     # print("Loading events")
     # events_path = (
@@ -258,7 +259,8 @@ def plot():
     # )
 
     print("Saving image")
-    im.save("out.png")
+
+    im.rotate(90, expand=True).save("out.png")
 
     print("Exiting")
 

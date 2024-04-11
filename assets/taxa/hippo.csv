@@ -1,4 +1,4 @@
-Penguins,mya
+Hippo,mya
 cellular_organisms,4250
 Eukaryota,1598
 Opisthokonta,1275
@@ -13,10 +13,11 @@ Sarcopterygii,415
 Dipnotetrapodomorpha,408
 Tetrapoda,352
 Amniota,319
-Sauria,280
-Archelosauria,261
-Archosauria,245
-Aves,108
-Neognathae,91
-Spheniscidae,20
-Aptenodytes,14
+Mammalia,180
+Theria,160
+Eutheria,99
+Boreoeutheria,94
+Laurasiatheria,86
+Artiodactyla,64
+Whippomorpha,53
+Hippopotamidae,7

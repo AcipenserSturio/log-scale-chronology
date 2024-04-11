@@ -1,4 +1,4 @@
-Ants,mya
+Mosquito,mya
 cellular_organisms,4250
 Eukaryota,1598
 Opisthokonta,1275
@@ -17,9 +17,8 @@ Dicondylia,413
 Pterygota,401
 Neoptera,383
 Endopterygota,344
-Hymenoptera,275
-Apocrita,227
-Aculeata,175
-Formicidae,155
-Formicinae,85
-Formicini,55
+Diptera,256
+Culicomorpha,226
+Culicoidea,190
+Culicidae,149
+Culex_pipiens_complex,3

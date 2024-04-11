@@ -1,4 +1,4 @@
-Australian Short Necked Turtles,mya
+Chimpanzees,mya
 cellular_organisms,4250
 Eukaryota,1598
 Opisthokonta,1275
@@ -13,9 +13,17 @@ Sarcopterygii,415
 Dipnotetrapodomorpha,408
 Tetrapoda,352
 Amniota,319
-Sauria,280
-Archelosauria,261
-Testudines,201
-Pleurodira,146
-Chelidae,87
-Emydura,21
+Mammalia,180
+Theria,160
+Eutheria,99
+Boreoeutheria,94
+Euarchontoglires,87
+Primates,74
+Haplorrhini,69
+Simiiformes,43
+Catarrhini,29
+Hominoidea,19
+Hominidae,15
+Homininae,9
+Hominini,5
+Pan,2
