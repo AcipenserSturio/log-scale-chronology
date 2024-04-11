@@ -9,6 +9,7 @@ TAXA = "assets/taxa-small" if ABBREVIATED else "assets/taxa"
 EVENTS = "assets/events-short.toml" if ABBREVIATED else "assets/events.toml"
 EVENTS_OFFSET = 1900 if ABBREVIATED else 3700
 WIDTH, HEIGHT = (2550, 1600) if ABBREVIATED else (4500, 7000)
+OUT = "chronology-abbreviated.png" if ABBREVIATED else "chronology.png"
 
 BACKGROUND_COLOR = (255, 255, 255, 255)
 COLOR = (0, 0, 0, 255)

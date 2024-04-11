@@ -12,7 +12,7 @@ from .config import (
     BACKGROUND_COLOR, COLOR,
     SEMI_TRANSPARENT, SEMI_TRANSPARENT_COLORED,
     YEAR_TACKS,
-    TAXA, EVENTS, EVENTS_OFFSET,
+    TAXA, EVENTS, EVENTS_OFFSET, OUT
 )
 YEAR_TACKS = list(map(Date, YEAR_TACKS))
 
@@ -258,7 +258,7 @@ def plot():
     print("Saving image")
 
     # im = im.rotate(90, expand=True)
-    im.save("out.png")
+    im.save(OUT)
 
     print("Exiting")
 
