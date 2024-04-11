@@ -19,7 +19,7 @@ class Taxonomy:
                 self.add_taxon(taxon, Date(f"{mya} mya"), prev_taxon)
                 prev_taxon, prev_mya = taxon, mya
             self.rename_taxon(taxon, colloq)
-            # self.add_taxon(colloq, Date(f"0.8 mya"), prev_taxon)
+            # self.add_taxon(colloq, Date(f"5 mya"), prev_taxon)
 
     def add_taxon(self, name: str, date: Date, parent: str | None):
         if name in self.taxa:
@@ -50,3 +50,9 @@ class Taxon:
     @property
     def branches(self):
         return list(sorted(self.children, key=lambda child: child.size, reverse=True))
+
+    @property
+    def leaf(self) -> "Taxon":
+        if self.children:
+            return self.branches[0].leaf
+        return self

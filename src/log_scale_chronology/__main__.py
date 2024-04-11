@@ -81,7 +81,8 @@ def draw_temp_scale(im: Image,
     im.alpha_composite(im_over)
 
 
-MIN_BLOCK = 20
+CHILD_EXTEND = 100
+MIN_BLOCK = 25
 def draw_taxon(im: Image,
                draw: ImageDraw.Draw,
                taxon: Taxon,
@@ -91,13 +92,7 @@ def draw_taxon(im: Image,
     taxon_mid = (offset + MIN_BLOCK * taxon.size // 2)
     if taxon.children:
         if len(taxon.children) > 1:
-            draw.text(
-                (taxon_mid, taxon.date.y + 3),
-                taxon.name,
-                fill=COLOR,
-                font=FONT,
-                anchor="md",
-            )
+            draw_branch_text(im, draw, taxon.name, taxon_mid, taxon.date.y)
         else:
             draw.line(
                 ((taxon_mid - 2, taxon.date.y), (taxon_mid + 2, taxon.date.y)),
@@ -106,20 +101,35 @@ def draw_taxon(im: Image,
         for child in taxon.branches:
             # draw child
             child_mid = offset + MIN_BLOCK * child.size // 2
-            draw.line(
-                ((taxon_mid, taxon.date.y),
-                (child_mid, taxon.date.y)),
-                fill=COLOR,
-            )
-            draw.line(
-                ((child_mid, taxon.date.y),
-                (child_mid, child.date.y)),
-                fill=COLOR,
-            )
-            draw_taxon(im, draw, child, offset)
+
+            if child.size == 1:
+                draw.line(
+                    ((taxon_mid, taxon.date.y),
+                    (child_mid, taxon.date.y)),
+                    fill=COLOR,
+                )
+                draw.line(
+                    ((child_mid, taxon.date.y),
+                    (child_mid, taxon.date.y + CHILD_EXTEND)),
+                    fill=COLOR,
+                )
+                draw_leaf_text(im, draw, child.leaf.name, child_mid, taxon.date.y + CHILD_EXTEND)
+            else:
+                draw.line(
+                    ((taxon_mid, taxon.date.y),
+                    (child_mid, taxon.date.y)),
+                    fill=COLOR,
+                )
+                draw.line(
+                    ((child_mid, taxon.date.y),
+                    (child_mid, child.date.y)),
+                    fill=COLOR,
+                )
+                draw_taxon(im, draw, child, offset)
             offset += child.size * MIN_BLOCK
     else:
-        draw_leaf_text(im, draw, taxon.name, taxon_mid, taxon.date.y)
+        raise ValueError("Somehow, a leaf is being rendered - it should be handled elsewhere")
+        # draw_leaf_text(im, draw, taxon.name, taxon_mid, taxon.date.y)
         # draw_tack(draw, taxon.name, taxon.date.y, taxon_mid)
 
 
@@ -153,7 +163,30 @@ def draw_leaf_text(im: Image,
         font=FONT,
     )
     img_text = img_text.rotate(-90, expand=True)
-    im.alpha_composite(img_text, (x - height // 2, y + 10))
+    im.alpha_composite(img_text, (x - height // 2 + 5, y + 5))
+
+
+def draw_branch_text(im: Image,
+                     draw: ImageDraw.Draw,
+                     message: str,
+                     # offset: tuple[int, int],
+                     # size: tuple[int, int]):
+                     x: int,
+                     y: int):
+    # offset_x, offset_y = offset
+    # size_x, size_y = size
+    width, height = textbox_size(message)
+
+    img_text = Image.new("RGBA", (width, height), (0, 0, 0, 0))
+    draw_text = ImageDraw.Draw(img_text)
+    draw_text.text(
+        (0, 0),
+        text=message,
+        fill=COLOR,
+        font=FONT,
+    )
+    img_text = img_text.rotate(-90, expand=True)
+    im.alpha_composite(img_text, (x - height // 2 + 5, y - width - 5))
 
 
 def plot():
