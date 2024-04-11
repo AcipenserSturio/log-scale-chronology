@@ -12,6 +12,7 @@ from .config import (
     BACKGROUND_COLOR, COLOR,
     SEMI_TRANSPARENT, SEMI_TRANSPARENT_COLORED,
     YEAR_TACKS,
+    TAXA, EVENTS, EVENTS_OFFSET,
 )
 YEAR_TACKS = list(map(Date, YEAR_TACKS))
 
@@ -238,24 +239,20 @@ def plot():
 
     print("Drawing taxonomy")
     taxonomy = Taxonomy()
-    for filepath in Path("assets/taxa").glob("*.csv"):
+    for filepath in Path(TAXA).glob("*.csv"):
         taxonomy.register(filepath)
     taxonomy.root.set_leaf_x(0)
     draw_taxon(im, draw, taxonomy.root, 1450)
 
     print("Loading events")
-    events_path = (
-        "assets/events-short.toml"
-        if HEIGHT < 4000 else "assets/events.toml"
-    )
-    with open(events_path, "rb") as f:
+    with open(EVENTS, "rb") as f:
         events = tomli.load(f)
 
     print("Drawing events")
     draw_tacks(
         draw,
         [(Date(date), desc) for date, desc in events.items()],
-        3700
+        EVENTS_OFFSET
     )
 
     print("Saving image")
