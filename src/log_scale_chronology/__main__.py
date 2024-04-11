@@ -242,25 +242,26 @@ def plot():
         taxonomy.register(filepath)
     taxonomy.root.set_leaf_x(0)
     draw_taxon(im, draw, taxonomy.root, 1450)
-    #
-    # print("Loading events")
-    # events_path = (
-    #     "assets/events-short.toml"
-    #     if HEIGHT < 4000 else "assets/events.toml"
-    # )
-    # with open(events_path, "rb") as f:
-    #     events = tomli.load(f)
-    #
-    # print("Drawing events")
-    # draw_tacks(
-    #     draw,
-    #     [(Date(date), desc) for date, desc in events.items()],
-    #     2650
-    # )
+
+    print("Loading events")
+    events_path = (
+        "assets/events-short.toml"
+        if HEIGHT < 4000 else "assets/events.toml"
+    )
+    with open(events_path, "rb") as f:
+        events = tomli.load(f)
+
+    print("Drawing events")
+    draw_tacks(
+        draw,
+        [(Date(date), desc) for date, desc in events.items()],
+        3700
+    )
 
     print("Saving image")
 
-    im.rotate(90, expand=True).save("out.png")
+    # im = im.rotate(90, expand=True)
+    im.save("out.png")
 
     print("Exiting")
 
