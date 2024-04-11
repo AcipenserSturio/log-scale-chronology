@@ -81,7 +81,6 @@ def draw_temp_scale(im: Image,
     im.alpha_composite(im_over)
 
 
-
 MIN_BLOCK = 20
 def draw_taxon(im: Image,
                draw: ImageDraw.Draw,
@@ -93,11 +92,11 @@ def draw_taxon(im: Image,
     if taxon.children:
         if len(taxon.children) > 1:
             draw.text(
-                (taxon_mid + 3, taxon.date.y - 10),
+                (taxon_mid, taxon.date.y + 3),
                 taxon.name,
                 fill=COLOR,
                 font=FONT,
-                anchor="lm",
+                anchor="md",
             )
         else:
             draw.line(
@@ -209,21 +208,21 @@ def plot():
     for filepath in Path("assets/taxa").glob("*.csv"):
         taxonomy.register(filepath)
     draw_taxon(im, draw, taxonomy.taxa["cellular_organisms"], 1450)
-
-    print("Loading events")
-    events_path = (
-        "assets/events-short.toml"
-        if HEIGHT < 4000 else "assets/events.toml"
-    )
-    with open(events_path, "rb") as f:
-        events = tomli.load(f)
-
-    print("Drawing events")
-    draw_tacks(
-        draw,
-        [(Date(date), desc) for date, desc in events.items()],
-        2650
-    )
+    #
+    # print("Loading events")
+    # events_path = (
+    #     "assets/events-short.toml"
+    #     if HEIGHT < 4000 else "assets/events.toml"
+    # )
+    # with open(events_path, "rb") as f:
+    #     events = tomli.load(f)
+    #
+    # print("Drawing events")
+    # draw_tacks(
+    #     draw,
+    #     [(Date(date), desc) for date, desc in events.items()],
+    #     2650
+    # )
 
     print("Saving image")
     im.save("out.png")
