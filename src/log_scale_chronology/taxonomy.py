@@ -86,6 +86,7 @@ class Taxon:
     def set_leaf_x(self, x: int) -> int:
         if self.is_leaf:
             self._x = x
+            print(self.name)
             return x + 1
         for child in self.branches:
             x = child.set_leaf_x(x)

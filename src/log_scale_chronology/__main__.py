@@ -12,7 +12,8 @@ from .config import (
     BACKGROUND_COLOR, COLOR,
     SEMI_TRANSPARENT, SEMI_TRANSPARENT_COLORED,
     YEAR_TACKS,
-    TAXA, EVENTS, EVENTS_OFFSET, OUT
+    TAXA, EVENTS, EVENTS_OFFSET, OUT,
+    BIG_BANG,
 )
 YEAR_TACKS = list(map(Date, YEAR_TACKS))
 
@@ -255,9 +256,12 @@ def plot():
         EVENTS_OFFSET
     )
 
-    print("Saving image")
+    print("Postprocessing image")
 
-    # im = im.rotate(90, expand=True)
+    EARLIEST = Date(f"{BIG_BANG} BC")
+    LATEST = Date("2 mya")
+    im = im.crop((0, EARLIEST.y, WIDTH, LATEST.y))
+    im = im.rotate(90, expand=True)
     im.save(OUT)
 
     print("Exiting")
