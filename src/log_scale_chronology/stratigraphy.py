@@ -98,7 +98,7 @@ class Span:
     def end(self) -> Date:
         next_span = self.next_span()
         if not next_span:
-            return Date("0 present")
+            return Date("present")
         return next_span.start
 
     @property

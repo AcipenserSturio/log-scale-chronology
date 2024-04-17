@@ -241,7 +241,7 @@ def plot():
 
     print("Drawing taxonomy")
     taxonomy = Taxonomy()
-    for filepath in Path(TAXA).glob("*.csv"):
+    for filepath in sorted(Path(TAXA).glob("*.csv")):
         taxonomy.register(filepath)
     taxonomy.root.set_leaf_x(0)
     draw_taxon(im, draw, taxonomy.root, 1450)
@@ -259,9 +259,9 @@ def plot():
 
     print("Postprocessing image")
 
-    EARLIEST = Date(f"{BIG_BANG} BC")
-    LATEST = Date("2 mya")
-    im = im.crop((0, EARLIEST.y, WIDTH, LATEST.y))
+    EARLIEST = Date("big bang")
+    LATEST = Date("1 mya")
+    im = im.crop((0, 0, WIDTH, LATEST.y))
     im = im.rotate(90, expand=True)
     im.save(OUT)
 

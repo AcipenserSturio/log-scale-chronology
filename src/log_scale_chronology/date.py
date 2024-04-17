@@ -10,7 +10,7 @@ DATE_PATTERN = r"""
 (?P<number>\-?\d+(\.\d+)?)
 (?P<month>-\d+)?
 (?P<day>-\d+)?
- (?P<unit>bya|mya|kya|BC|AD|present|ky before 2015)
+ (?P<unit>bya|mya|kya|BC|AD|ky before 2015)
 """.replace("\n", "")
 
 
@@ -21,6 +21,13 @@ class Date:
     """
     def __init__(self, string: str):
         self.string = string
+
+        if string == "big bang":
+            self.value = BIG_BANG
+            return
+        if string == "present":
+            self.value = 1
+            return
 
         number, month, day, unit = (
             re.match(DATE_PATTERN, string)
@@ -39,8 +46,6 @@ class Date:
             number += PRESENT
         elif (unit == "AD"):
             number = PRESENT - number
-        elif (unit == "present"):
-            number = 1 # Fixed to the very end of the image
         else:
             raise ValueError(f"Unsupported year unit: {unit}")
 
