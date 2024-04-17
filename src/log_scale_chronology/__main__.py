@@ -1,4 +1,5 @@
 import csv
+import re
 from pathlib import Path
 
 from PIL import Image, ImageDraw
@@ -94,8 +95,7 @@ def draw_taxon(im: Image,
     taxon_mid = TAXONOMY_OFFSET + round(taxon.x * MIN_BLOCK)
     if taxon.children:
         if len(taxon.children) > 1:
-            if not taxon.name.isdigit():
-                draw_branch_text(im, draw, taxon.name, taxon_mid, taxon.date.y)
+            draw_branch_text(im, draw, taxon.name, taxon_mid, taxon.date.y)
         else:
             draw.line(
                 ((taxon_mid - 2, taxon.date.y), (taxon_mid + 2, taxon.date.y)),
@@ -176,6 +176,12 @@ def draw_branch_text(im: Image,
                      # size: tuple[int, int]):
                      x: int,
                      y: int):
+    # Ignore branch names that are digits, i.e. unnamed
+    if message.isdigit():
+        return
+    # Ignore digits in branch names, i.e. identically named branches
+    message = re.sub(r"\(\d*\)", "", message)
+
     # offset_x, offset_y = offset
     # size_x, size_y = size
     width, height = textbox_size(message)
@@ -241,7 +247,7 @@ def plot():
 
     print("Drawing taxonomy")
     taxonomy = Taxonomy()
-    for filepath in sorted(Path(TAXA).glob("*.csv")):
+    for filepath in sorted(Path(TAXA).glob("*.csv"), reverse=True):
         taxonomy.register(filepath)
     taxonomy.root.set_leaf_x(0)
     draw_taxon(im, draw, taxonomy.root, 1450)
