@@ -7,7 +7,7 @@ from .config import (
 
 
 DATE_PATTERN = r"""
-(?P<number>\d+(\.\d+)?)
+(?P<number>\-?\d+(\.\d+)?)
 (?P<month>-\d+)?
 (?P<day>-\d+)?
  (?P<unit>bya|mya|kya|BC|AD|present|ky before 2015)
