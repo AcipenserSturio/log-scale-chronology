@@ -94,7 +94,8 @@ def draw_taxon(im: Image,
     taxon_mid = TAXONOMY_OFFSET + round(taxon.x * MIN_BLOCK)
     if taxon.children:
         if len(taxon.children) > 1:
-            draw_branch_text(im, draw, taxon.name, taxon_mid, taxon.date.y)
+            if not taxon.name.isdigit():
+                draw_branch_text(im, draw, taxon.name, taxon_mid, taxon.date.y)
         else:
             draw.line(
                 ((taxon_mid - 2, taxon.date.y), (taxon_mid + 2, taxon.date.y)),

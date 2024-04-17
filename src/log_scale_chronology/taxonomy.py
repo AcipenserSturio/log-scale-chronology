@@ -37,7 +37,7 @@ class Taxonomy:
 
     @property
     def root(self):
-        return self.taxa["cellular_organisms"]
+        return self.taxa["cellular organisms"]
 
 @dataclass
 class Taxon:
