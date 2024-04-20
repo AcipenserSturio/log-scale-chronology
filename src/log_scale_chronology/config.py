@@ -7,8 +7,8 @@ FONT = ImageFont.truetype("/usr/share/fonts/noto/NotoSerif-Bold.ttf", FONTSIZE)
 ABBREVIATED = False
 TAXA = "assets/taxa-small" if ABBREVIATED else "assets/taxa"
 EVENTS = "assets/events-short.toml" if ABBREVIATED else "assets/events.toml"
-EVENTS_OFFSET = 1900 if ABBREVIATED else 7600
-WIDTH, HEIGHT = (2550, 1600) if ABBREVIATED else (8500, 7000)
+EVENTS_OFFSET = 1900 if ABBREVIATED else 8200
+WIDTH, HEIGHT = (2550, 1600) if ABBREVIATED else (8700, 7400)
 OUT = "chronology-abbreviated.png" if ABBREVIATED else "chronology.png"
 
 BACKGROUND_COLOR = (255, 255, 255, 255)
