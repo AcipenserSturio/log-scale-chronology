@@ -69,9 +69,9 @@ class Plotter:
             prev_date, prev_temp = next(data)
             for date, temp in data:
                 draw.line(
-                    ((offset + float(prev_temp) * self.settings["temp_magnifier"],
+                    ((offset + float(prev_temp) * self.settings["temps"]["magnifier"],
                     self.y(Date(f"{prev_date} {unit}"))),
-                    (offset + float(temp) * self.settings["temp_magnifier"],
+                    (offset + float(temp) * self.settings["temps"]["magnifier"],
                     self.y(Date(f"{date} {unit}")))),
                     fill=SEMI_TRANSPARENT,
                 )
@@ -87,8 +87,8 @@ class Plotter:
 
         for temp in range(-10, 25):
             draw.line(
-                ((offset + temp * self.settings["temp_magnifier"], self.y(Date("120 mya")),
-                (offset + temp * self.settings["temp_magnifier"], self.settings["height"]))),
+                ((offset + temp * self.settings["temps"]["magnifier"], self.y(Date("120 mya")),
+                (offset + temp * self.settings["temps"]["magnifier"], self.settings["height"]))),
                 fill=(SEMI_TRANSPARENT_COLORED
                     if temp % 5 else SEMI_TRANSPARENT),
             )
@@ -255,39 +255,42 @@ class Plotter:
         for span in strat.ages:
             self.rectangle(span)
 
-        overlay = Image.new("RGBA", (self.settings["width"] - 1000, self.settings["height"]), (255, 255, 255, 200))
-        self.im.alpha_composite(overlay, (1000, 0))
+        overlay = Image.new("RGBA",
+            (self.settings["width"] - self.settings["timescale"]["offset"],
+             self.settings["height"]),
+            (255, 255, 255, 200),
+        )
+        self.im.alpha_composite(overlay, (self.settings["timescale"]["offset"], 0))
 
         print("Drawing time scale tacks")
-        for date in self.settings["tacks"]:
+        for date in self.settings["timescale"]["tacks"]:
             date = Date(date)
-            self.draw_tacks([(date, date.string)], 1000)
+            self.draw_tacks([(date, date.string)], self.settings["timescale"]["offset"])
 
         print("Drawing temperature scale")
-        self.draw_temp_scale(1200)
+        self.draw_temp_scale(self.settings["temps"]["offset"])
         for filepath in Path("assets/paleotemps").glob("*.csv"):
             print(f"Drawing {filepath.stem}")
-            self.draw_csv(1200, filepath)
+            self.draw_csv(self.settings["temps"]["offset"], filepath)
 
         print("Drawing taxonomy")
-        taxonomy = Taxonomy(self.settings["root"])
-        for filepath in sorted(Path(self.settings["taxa"]).glob("*.csv"), reverse=True):
+        taxonomy = Taxonomy(self.settings["taxonomy"]["root"])
+        for filepath in sorted(Path(self.settings["taxonomy"]["source"]).glob("*.csv"), reverse=True):
             taxonomy.register(filepath)
         taxonomy.root.set_leaf_x(0)
-        self.draw_taxon(taxonomy.root, 1450)
+        self.draw_taxon(taxonomy.root, self.settings["taxonomy"]["offset"])
 
         print("Loading events")
-        with open(self.settings["events"], "rb") as f:
+        with open(self.settings["events"]["source"], "rb") as f:
             events = tomli.load(f)
 
         print("Drawing events")
         self.draw_tacks(
             [(Date(date), desc) for date, desc in events.items()],
-            self.settings["events_offset"]
+            self.settings["events"]["offset"]
         )
 
         print("Postprocessing image")
-
         self.im = self.im.crop((
             0,
             self.y(Date(self.settings["earliest"])),

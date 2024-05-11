@@ -6,7 +6,8 @@ latest = "present"
 out = "abbreviated.png"
 rotate = false
 
-# Timescale
+[timescale]
+offset = 1000
 tacks = [
     "10 bya",
 
@@ -23,14 +24,15 @@ tacks = [
     "2000 AD", "2010 AD", "2016 AD", "2021 AD", "2023 AD"
 ]
 
-# Temperature
-temp_magnifier = 10
+[temps]
+offset = 1200
+magnifier = 10
 
-# Taxonomy
-taxonomy_offset = 1450
-taxa = "assets/taxa-small"
+[taxonomy]
+offset = 1450
+source = "assets/taxa-small"
 root = "cellular_organisms"
 
-# Events
-events_offset = 1900
-events = "assets/events-short.toml"
+[events]
+offset = 1890
+source = "assets/events-short.toml"
