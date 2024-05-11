@@ -6,6 +6,9 @@ latest = "present"
 out = "abbreviated.png"
 rotate = false
 
+[stratigraphy]
+source = "assets/stratigraphy.toml"
+
 [timescale]
 offset = 1000
 tacks = [

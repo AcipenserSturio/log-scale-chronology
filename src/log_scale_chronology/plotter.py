@@ -231,64 +231,69 @@ class Plotter:
         # draw.rectangle((200, 100, 300, 200), fill=(0, 192, 192), outline=(255, 255, 255))
         # draw_node(im, draw, 0, 0)
 
-        print("Loading stratigraphic data")
-        with open("assets/stratigraphy.toml", "rb") as f:
-            strat = Tree(tomli.load(f))
+        if "stratigraphy" in self.settings:
+            print("Loading stratigraphic data")
+            with open(self.settings["stratigraphy"]["source"], "rb") as f:
+                strat = Tree(tomli.load(f))
 
-        print("Drawing eons")
-        for span in strat.eons:
-            self.rectangle(span)
+            print("Drawing eons")
+            for span in strat.eons:
+                self.rectangle(span)
 
-        print("Drawing eras")
-        for span in strat.eras:
-            self.rectangle(span)
+            print("Drawing eras")
+            for span in strat.eras:
+                self.rectangle(span)
 
-        print("Drawing periods")
-        for span in strat.periods:
-            self.rectangle(span)
+            print("Drawing periods")
+            for span in strat.periods:
+                self.rectangle(span)
 
-        print("Drawing epochs")
-        for span in strat.epochs:
-            self.rectangle(span)
+            print("Drawing epochs")
+            for span in strat.epochs:
+                self.rectangle(span)
 
-        print("Drawing ages")
-        for span in strat.ages:
-            self.rectangle(span)
+            print("Drawing ages")
+            for span in strat.ages:
+                self.rectangle(span)
 
-        overlay = Image.new("RGBA",
-            (self.settings["width"] - self.settings["timescale"]["offset"],
-             self.settings["height"]),
-            (255, 255, 255, 200),
-        )
-        self.im.alpha_composite(overlay, (self.settings["timescale"]["offset"], 0))
+        if "timescale" in self.settings:
+            overlay = Image.new("RGBA",
+                (self.settings["width"] - self.settings["timescale"]["offset"],
+                self.settings["height"]),
+                (255, 255, 255, 200),
+            )
+            self.im.alpha_composite(overlay, (self.settings["timescale"]["offset"], 0))
 
-        print("Drawing time scale tacks")
-        for date in self.settings["timescale"]["tacks"]:
-            date = Date(date)
-            self.draw_tacks([(date, date.string)], self.settings["timescale"]["offset"])
+            print("Drawing time scale tacks")
+            for date in self.settings["timescale"]["tacks"]:
+                date = Date(date)
+                self.draw_tacks([(date, date.string)], self.settings["timescale"]["offset"])
 
-        print("Drawing temperature scale")
-        self.draw_temp_scale(self.settings["temps"]["offset"])
-        for filepath in Path("assets/paleotemps").glob("*.csv"):
-            print(f"Drawing {filepath.stem}")
-            self.draw_csv(self.settings["temps"]["offset"], filepath)
+        if "temps" in self.settings:
+            print("Drawing temperature scale")
+            self.draw_temp_scale(self.settings["temps"]["offset"])
+            for filepath in Path("assets/paleotemps").glob("*.csv"):
+                print(f"Drawing {filepath.stem}")
+                self.draw_csv(self.settings["temps"]["offset"], filepath)
 
-        print("Drawing taxonomy")
-        taxonomy = Taxonomy(self.settings["taxonomy"]["root"])
-        for filepath in sorted(Path(self.settings["taxonomy"]["source"]).glob("*.csv"), reverse=True):
-            taxonomy.register(filepath)
-        taxonomy.root.set_leaf_x(0)
-        self.draw_taxon(taxonomy.root, self.settings["taxonomy"]["offset"])
+        if "taxonomy" in self.settings:
+            print("Drawing taxonomy")
+            taxonomy = Taxonomy(self.settings["taxonomy"]["root"])
+            for filepath in sorted(Path(self.settings["taxonomy"]["source"]).glob("*.csv"), reverse=True):
+                taxonomy.register(filepath)
+            taxonomy.root.set_leaf_x(0)
+            self.draw_taxon(taxonomy.root, self.settings["taxonomy"]["offset"])
 
-        print("Loading events")
-        with open(self.settings["events"]["source"], "rb") as f:
-            events = tomli.load(f)
+        if "events" in self.settings:
+            print("Loading events")
+            with open(self.settings["events"]["source"], "rb") as f:
+                events = tomli.load(f)
 
-        print("Drawing events")
-        self.draw_tacks(
-            [(Date(date), desc) for date, desc in events.items()],
-            self.settings["events"]["offset"]
-        )
+            print("Drawing events")
+            self.draw_tacks(
+                [(Date(date), desc) for date, desc in events.items()],
+                self.settings["events"]["offset"]
+            )
 
         print("Postprocessing image")
         self.im = self.im.crop((
