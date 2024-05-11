@@ -19,7 +19,6 @@ from .config import (
 
 CHILD_EXTEND = 10
 MIN_BLOCK = 20
-TAXONOMY_OFFSET = 1450
 
 class Plotter:
     def __init__(self, profile: Path):
@@ -98,7 +97,7 @@ class Plotter:
                    taxon: Taxon,
                    offset: int):
 
-        taxon_mid = TAXONOMY_OFFSET + round(taxon.x * MIN_BLOCK)
+        taxon_mid = self.settings["taxonomy"]["offset"] + round(taxon.x * MIN_BLOCK)
         if taxon.children:
             if len(taxon.children) > 1:
                 self.draw_branch_text(taxon.name, taxon_mid, self.y(taxon.date))
@@ -109,7 +108,7 @@ class Plotter:
                 )
             for child in taxon.branches:
                 # draw child
-                child_mid = TAXONOMY_OFFSET + round(child.x * MIN_BLOCK)
+                child_mid = self.settings["taxonomy"]["offset"] + round(child.x * MIN_BLOCK)
 
                 if child.size == 1:
                     self.draw.line(

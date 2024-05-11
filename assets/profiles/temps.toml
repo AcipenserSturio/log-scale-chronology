@@ -1,10 +1,10 @@
 # Generic
-width = 9100
+width = 2100
 height = 7400
-earliest = "big bang"
+earliest = "120 mya"
 latest = "present"
-out = "full.png"
-rotate = false
+out = "temps.png"
+rotate = true
 
 [stratigraphy]
 source = "assets/stratigraphy.toml"
@@ -28,14 +28,5 @@ tacks = [
 ]
 
 [temps]
-offset = 1200
-magnifier = 10
-
-[taxonomy]
-offset = 1450
-source = "assets/taxa"
-root = "cellular organisms"
-
-[events]
-offset = 8230
-source = "assets/events.toml"
+offset = 1400
+magnifier = 30

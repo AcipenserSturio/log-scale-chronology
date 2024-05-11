@@ -1,0 +1,25 @@
+# Generic
+width = 1800
+height = 7400
+earliest = "big bang"
+latest = "0.9 mya"
+out = "ubuntu.png"
+rotate = true
+
+[stratigraphy]
+source = "assets/stratigraphy.toml"
+
+[timescale]
+offset = 1000
+tacks = [
+    "10 bya",
+    "6 bya", "4 bya", "2.5 bya", "1.5 bya", "1 bya",
+    "600 mya", "400 mya", "250 mya", "150 mya", "100 mya",
+    "60 mya", "40 mya", "25 mya", "15 mya", "10 mya",
+    "6 mya", "4 mya", "2.5 mya", "1.5 mya", "1 mya",
+]
+
+[taxonomy]
+offset = 1100
+source = "assets/taxa-ubuntu"
+root = "cellular organisms"
