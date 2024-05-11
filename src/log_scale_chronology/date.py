@@ -2,7 +2,6 @@ import math
 import re
 from .config import (
     BP_EPOCH, PRESENT, BIG_BANG,
-    HEIGHT,
 )
 
 
@@ -75,14 +74,3 @@ class Date:
         one year ago = 1.
         """
         return 1 - math.log(self.value) / math.log(BIG_BANG)
-
-    @property
-    def y(self) -> int:
-        """
-        Returns value in the form of [0, HEIGHT],
-        where Big Bang = 0,
-        one year ago = HEIGHT.
-        """
-        return round(self.percentile * HEIGHT)
-        # Non logarithmic option:
-        # return round((1 - self.value / BIG_BANG) * HEIGHT)

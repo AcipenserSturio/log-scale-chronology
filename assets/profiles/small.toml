@@ -1,0 +1,36 @@
+# Generic
+width = 2550
+height = 1600
+earliest = "big bang"
+latest = "present"
+out = "abbreviated.png"
+rotate = false
+
+# Timescale
+tacks = [
+    "10 bya",
+
+    "5 bya", "2 bya", "1 bya",
+    "500 mya", "200 mya", "100 mya",
+    "50 mya", "20 mya", "10 mya",
+
+    "5 mya", "2 mya", "1 mya",
+    "500 kya", "200 kya", "100 kya",
+    "50 kya", "20 kya", "10 kya",
+
+    "3000 BC", "1000 BC", "200 AD", "1000 AD", "1500 AD",
+    "1800 AD", "1900 AD", "1950 AD", "1980 AD",
+    "2000 AD", "2010 AD", "2016 AD", "2021 AD", "2023 AD"
+]
+
+# Temperature
+temp_magnifier = 10
+
+# Taxonomy
+taxonomy_offset = 1450
+taxa = "assets/taxa-small"
+root = "cellular_organisms"
+
+# Events
+events_offset = 1900
+events = "assets/events-short.toml"

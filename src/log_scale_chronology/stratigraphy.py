@@ -7,18 +7,9 @@ from PIL import ImageDraw
 
 from .date import Date
 from .config import (
-    COLOR, FONT, WIDTH,
+    COLOR, FONT,
+    IDS_TO_LEVELS, LEVELS_TO_IDS,
 )
-
-IDS_TO_LEVELS = [
-    "eon",
-    "era",
-    "period",
-    "epoch",
-    "age",
-]
-LEVELS_TO_IDS = {k: v for v, k in enumerate(IDS_TO_LEVELS)}
-BLOCK_SIZE = 200
 
 
 class Tree:
@@ -110,25 +101,3 @@ class Span:
         if self._text_color:
             return tuple(bytes.fromhex(self._text_color[1:]))
         return COLOR
-
-    def rectangle(self, draw: ImageDraw):
-        y1, y2 = self.start.y, self.end.y
-        y_mid = (y1 + y2) / 2
-        x1 = LEVELS_TO_IDS[self.level] * BLOCK_SIZE
-        x2 = x1 + BLOCK_SIZE
-        if not self._child:
-            # x2 = BLOCK_SIZE*5
-            x2 = WIDTH
-
-        draw.rectangle(
-            ((x1, y1), (x2, y2)),
-            fill=self.color,
-        )
-        if y2 - y1 > 15:
-            draw.text(
-                (10 + x1, y_mid),
-                self.name,
-                fill=self.text_color,
-                font=FONT,
-                anchor="lm",
-            )

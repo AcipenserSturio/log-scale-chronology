@@ -6,8 +6,9 @@ from .date import Date
 
 
 class Taxonomy:
-    def __init__(self):
+    def __init__(self, root_name: str):
         self.taxa = {}
+        self.root_name = root_name
 
     def register(self, path: Path):
         with open(path) as f:
@@ -37,7 +38,7 @@ class Taxonomy:
 
     @property
     def root(self):
-        return self.taxa["cellular organisms"]
+        return self.taxa[self.root_name]
 
 @dataclass
 class Taxon:
