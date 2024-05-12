@@ -6,6 +6,7 @@ FONT = ImageFont.truetype("/usr/share/fonts/noto/NotoSerif-Bold.ttf", FONTSIZE)
 
 BACKGROUND_COLOR = (255, 255, 255, 255)
 COLOR = (0, 0, 0, 255)
+COLOR_SHADE = (120, 120, 120, 255)
 SEMI_TRANSPARENT = (0, 0, 0, 100)
 SEMI_TRANSPARENT_COLORED = (0, 127, 255, 50)
 

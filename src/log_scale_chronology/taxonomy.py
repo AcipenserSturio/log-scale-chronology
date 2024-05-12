@@ -3,6 +3,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 
 from .date import Date
+from .config import COLOR, COLOR_SHADE
 
 
 class Taxonomy:
@@ -46,6 +47,14 @@ class Taxon:
     date: Date
     children: list = field(default_factory=list)
     _x: int = field(init=False)
+
+    @property
+    def extinct(self) -> bool:
+        return "†" in self.name
+
+    @property
+    def color(self) -> tuple[int, int, int, int]:
+        return COLOR_SHADE if self.extinct else COLOR
 
     @property
     def size(self) -> int:

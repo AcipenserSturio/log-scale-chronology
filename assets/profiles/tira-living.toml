@@ -1,0 +1,25 @@
+# Generic
+width = 2500
+height = 20000
+earliest = "4423 mya"
+latest = "0.5 mya"
+out = "tira-living.png"
+rotate = true
+
+[stratigraphy]
+source = "assets/stratigraphy-tira.toml"
+
+[timescale]
+offset = 300
+tacks = [
+    "10 bya",
+    "6 bya", "4 bya", "2.5 bya", "1.5 bya", "1 bya",
+    "600 mya", "400 mya", "250 mya", "150 mya", "100 mya",
+    "60 mya", "40 mya", "25 mya", "15 mya", "10 mya",
+    "6 mya", "4 mya", "2.5 mya", "1.5 mya", "1 mya",
+]
+
+[taxonomy]
+offset = 400
+source = "assets/taxa-biblaridion-living"
+root = "cellular organisms"

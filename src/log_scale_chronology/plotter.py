@@ -104,7 +104,7 @@ class Plotter:
             else:
                 self.draw.line(
                     ((taxon_mid - 2, self.y(taxon.date)), (taxon_mid + 2, self.y(taxon.date))),
-                    fill=COLOR,
+                    fill=taxon.color,
                 )
             for child in taxon.branches:
                 # draw child
@@ -114,24 +114,24 @@ class Plotter:
                     self.draw.line(
                         ((taxon_mid, self.y(taxon.date)),
                         (child_mid, self.y(taxon.date))),
-                        fill=COLOR,
+                        fill=child.color,
                     )
                     self.draw.line(
                         ((child_mid, self.y(taxon.date)),
                         (child_mid, self.y(taxon.date) + CHILD_EXTEND)),
-                        fill=COLOR,
+                        fill=child.color,
                     )
                     self.draw_leaf_text(child.leaf.name, child_mid, self.y(taxon.date) + CHILD_EXTEND)
                 else:
                     self.draw.line(
                         ((taxon_mid, self.y(taxon.date)),
                         (child_mid, self.y(taxon.date))),
-                        fill=COLOR,
+                        fill=child.color,
                     )
                     self.draw.line(
                         ((child_mid, self.y(taxon.date)),
                         (child_mid, self.y(child.date))),
-                        fill=COLOR,
+                        fill=child.color,
                     )
                     self.draw_taxon(child, offset)
                 offset += child.size * MIN_BLOCK
